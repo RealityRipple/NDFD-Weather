@@ -24,61 +24,87 @@
 	
 	<script type="application/x-javascript" src="worldweatherOptions.js"/>
 
-	<vbox>
-		<groupbox orient="vertical">
-			<caption label="&location-box:label;"/>
-			<hbox align="left">
-				<description>&zip:description;</description>
-				<textbox align="baseline" id="zipcodeInput" size="8" maxlength="8"/>
-			</hbox>
-			<button label="Search For Location Code" oncommand="window.openDialog('chrome://worldweather/content/worldweatherLocationSearch.xul', 'worldweatherLocationSearch', 'chrome,dependent,modal');"/>
-		</groupbox>
-
-		<groupbox>
-			<caption label="&refresh-box:label;"/>
-			<radiogroup id="refreshGroup">
-				<radio id="refreshNo" value="no" accesskey="D" label="&refresh-no:label;"/>
-				<hbox>
-					<radio id="refreshYes" value="yes" accesskey="A" label="&refresh-yes:label;"/>
-					<textbox align="baseline" id="refreshMinutes" size="3" maxlength="3"/>
-				</hbox>
-			</radiogroup>
-		</groupbox>
+	<tabbox id="wf_tabbox">
+		<tabs>
+			<tab label="&tabname-location:label;"/>
+			<tab label="&tabname-currentconditions:label;"/>
+			<tab label="&tabname-about:label;"/>
+		</tabs>
+		<tabpanels flex="1">
+			<tabpanel orient="vertical" flex="1">
+				<vbox>
+					<groupbox orient="vertical">
+						<caption label="&location-box:label;"/>
+						<hbox align="left">
+							<description>&zip:description;</description>
+							<textbox align="baseline" id="zipcodeInput" size="8" maxlength="8"/>
+						</hbox>
+						<button label="Search For Location Code" oncommand="window.openDialog('chrome://worldweather/content/worldweatherLocationSearch.xul', 'worldweatherLocationSearch', 'chrome,dependent,modal');"/>
+					</groupbox>
+				</vbox>
+			</tabpanel>
 		
-		<groupbox>
-			<caption label="&unittype-box:label;"/>
-			<radiogroup id="unittypeGroup">
-				<hbox>
-					<radio id="unittypeStandard" value="s" accesskey="S" label="&unittype-standard:label;"/>
-					<radio id="unittypeMetric" value="m" accesskey="M" label="&unittype-metric:label;"/>
-				</hbox>
-			</radiogroup>
-		</groupbox>
-		
-		<groupbox>
-			<caption label="&iconsize-box:label;"/>
-			<radiogroup id="iconsizeGroup">
-				<hbox>
-					<radio id="iconsizeSmall" value="small" accesskey="S" label="&iconsize-small:label;"/>
-					<radio id="iconsizeMedium" value="medium" accesskey="M" label="&iconsize-medium:label;"/>
-					<radio id="iconsizeLarge" value="large" accesskey="L" label="&iconsize-large:label;"/>
-				</hbox>
-			</radiogroup>
-		</groupbox>
+			<tabpanel orient="vertical" flex="1">
+				<vbox>
+					<groupbox>
+						<caption label="&unittype-box:label;"/>
+						<radiogroup id="unittypeGroup">
+							<hbox>
+								<radio id="unittypeStandard" value="s" accesskey="S" label="&unittype-standard:label;"/>
+								<radio id="unittypeMetric" value="m" accesskey="M" label="&unittype-metric:label;"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>
 
-		<groupbox orient="horizontal" flex="1">
-			<caption label="&about-box:label;"/>
-			<vbox flex="1" align="center">
-				<html:a href="http://www.weather.com/?prod=xoap&amp;par=1005339582"><image src="logo.png"/></html:a>
-			</vbox>
-			<vbox>
-				<description> </description>
-			</vbox>
-			<vbox flex="1" pack="end">
-				<description>&created-by;<html:br/>Matt Moyer</description>
-				<description>&updated-by;<html:br/><html:a href="mailto:weather@keystrokeconsulting.com">Luke Fessler</html:a></description>
-				<description>&thanks:before;<html:br/><html:a href="http://www.weather.com/?prod=xoap&amp;par=1005339582">weather.com</html:a><html:br/></description>
-			</vbox>
-		</groupbox>
-	</vbox>
+					<groupbox>
+						<caption label="&iconsize-box:label;"/>
+						<radiogroup id="iconsizeGroup">
+							<hbox>
+								<radio id="iconsizeSmall" value="small" accesskey="S" label="&iconsize-small:label;"/>
+								<radio id="iconsizeMedium" value="medium" accesskey="M" label="&iconsize-medium:label;"/>
+								<radio id="iconsizeLarge" value="large" accesskey="L" label="&iconsize-large:label;"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>
+
+					<groupbox>
+						<caption label="&textsize-box:label;"/>
+						<radiogroup id="textsizeGroup">
+							<hbox>
+								<radio id="textsizeSmall" value="small" accesskey="" label="&textsize-small:label;"/>
+								<radio id="textsizeMedium" value="medium" accesskey="" label="&textsize-medium:label;"/>
+								<radio id="textsizeLarge" value="large" accesskey="" label="&textsize-large:label;"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>
+
+					<groupbox>
+						<caption label="&refresh-box:label;"/>
+						<radiogroup id="refreshGroup">
+							<radio id="refreshNo" value="no" accesskey="D" label="&refresh-no:label;"/>
+							<hbox>
+								<radio id="refreshYes" value="yes" accesskey="A" label="&refresh-yes:label;"/>
+								<textbox align="baseline" id="refreshMinutes" size="3" maxlength="3"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>					
+				</vbox>
+			</tabpanel>
+			<tabpanel orient="vertical" flex="1">
+				<hbox align="middle">
+					<vbox flex="1" align="center">
+						<html:a href="http://www.weather.com/?prod=xoap&amp;par=1005339582"><image src="logo.png"/></html:a>
+					</vbox>
+					<vbox>
+						<description> </description>
+					</vbox>
+					<vbox flex="1" pack="end">
+						<description>&created-by;<html:br/>Matt Moyer</description>
+						<description>&updated-by;<html:br/><html:a href="mailto:weather@keystrokeconsulting.com">Luke Fessler</html:a></description>
+						<description>&thanks:before;<html:br/><html:a href="http://www.weather.com/?prod=xoap&amp;par=1005339582">weather.com</html:a><html:br/></description>
+					</vbox>
+				</hbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
 </dialog>

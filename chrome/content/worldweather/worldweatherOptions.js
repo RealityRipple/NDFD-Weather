@@ -38,6 +38,21 @@ function initWorldWeatherOptions() {
 	} else {
 		document.getElementById("iconsizeGroup").selectedItem = document.getElementById("iconsizeMedium");
 	}
+
+	if (worldweather_prefs.getPrefType("textsize") != 0) {
+		if (worldweather_prefs.getCharPref("textsize") == "small") {
+			document.getElementById("textsizeGroup").selectedItem = document.getElementById("textsizeSmall");
+		} else if (worldweather_prefs.getCharPref("textsize") == "medium") {
+			document.getElementById("textsizeGroup").selectedItem = document.getElementById("textsizeMedium");
+		} else if (worldweather_prefs.getCharPref("textsize") == "large") {
+			document.getElementById("textsizeGroup").selectedItem = document.getElementById("textsizeLarge");
+		} else {
+			document.getElementById("textsizeGroup").selectedItem = document.getElementById("textsizeMedium");
+		}
+	} else {
+		document.getElementById("textsizeGroup").selectedItem = document.getElementById("textsizeMedium");
+	}
+
 	
 	if (worldweather_prefs.getPrefType("unittype") != 0) {
 		if (worldweather_prefs.getCharPref("unittype") == "s") {
@@ -60,6 +75,7 @@ function saveWorldWeatherOptions() {
 	
 	worldweather_prefs.setCharPref("zipcode", document.getElementById("zipcodeInput").value);
 	worldweather_prefs.setCharPref("iconsize", document.getElementById("iconsizeGroup").selectedItem.value);
+	worldweather_prefs.setCharPref("textsize", document.getElementById("textsizeGroup").selectedItem.value);
 	worldweather_prefs.setCharPref("unittype", document.getElementById("unittypeGroup").selectedItem.value);
 
 	if (document.getElementById("refreshMinutes").value < 30){

@@ -4,7 +4,7 @@ var passXML;
 var link_data = new Array(new Array(), new Array());
 
 
-function getWorldWeather(zipcode,iconsize,unittype) { // Gets weather data from a remote xml file
+function getWorldWeather(zipcode,iconsize,textsize,unittype) { // Gets weather data from a remote xml file
 
 	var worldweatherRequest = new XMLHttpRequest();
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
@@ -56,12 +56,12 @@ function getWorldWeather(zipcode,iconsize,unittype) { // Gets weather data from 
 		
 		// If the file is corrupted, display the error message.
 		catch (e) {
-			displayWorldWeather("Error",iconsize,"");
+			displayWorldWeather("Error",iconsize,textsize,"");
 			return true;
 		}
 
 		// Everything must be okay, so pass the array of current weather to the display function
-		displayWorldWeather(return_data,iconsize,link_data);
+		displayWorldWeather(return_data,iconsize,textsize,link_data);
 	}
 
 	// Reset the display to the "Loading..." message
@@ -71,37 +71,39 @@ function getWorldWeather(zipcode,iconsize,unittype) { // Gets weather data from 
 	try {
 		worldweatherRequest.send(null);
 		// If we don't hear back from the remote web service in 5 seconds, display the error message.
-		myTimeout = setTimeout("displayWorldWeather('Error',iconsize,'');", 5000);
+		myTimeout = setTimeout("displayWorldWeather('Error',iconsize,textsize,'');", 5000);
 	}
 	
 	// If we can't send the request, display the error message.
 	catch (e) {
-		displayWorldWeather("Error",iconsize,"");
+		displayWorldWeather("Error",iconsize,textsize,"");
 	}
 };
 
 
 
-function displayWorldWeather(current_worldweather,iconsize,current_links) {
+function displayWorldWeather(current_worldweather,iconsize,textsize,current_links) {
 
 	// gets reference to localized strings
 	var stringbundle = document.getElementById("strings");
 
 	// if the weather server is down, display the error message (the string "Error" doesn't really mean anything)
 	if (current_worldweather == "Error") {
-		document.getElementById("displayWorldWeather-IconError").setAttribute("src", "chrome://worldweather/skin/icons/" + iconsize + "/na.png");
+		document.getElementById("displayWorldWeather-IconError").setAttribute("src", "chrome://worldweather/skin/icons/" + iconsize + "/na.gif");
 		document.getElementById('worldweatherDeck').selectedIndex = '2';
 		return true;
 	}
 
 	// Load the current icon into the display
-	document.getElementById("displayWorldWeather-Icon").setAttribute("src", "chrome://worldweather/skin/icons/" + iconsize + "/" + current_worldweather["IconIndex"] + ".png");
+	document.getElementById("displayWorldWeather-Icon").setAttribute("src", "chrome://worldweather/skin/icons/" + iconsize + "/" + current_worldweather["IconIndex"] + ".gif");
 
 	// Load the current temperature into the display
 	document.getElementById("displayWorldWeather-Temperature").setAttribute("value", current_worldweather["Temprature"]);
+	document.getElementById("displayWorldWeather-Temperature").setAttribute("class", "displayWorldWeather-Temperature-" + textsize);
 
 	// Load the location into the display
 	document.getElementById("displayWorldWeather-Location").setAttribute("value", current_worldweather["Location"]);
+	document.getElementById("displayWorldWeather-Location").setAttribute("class", "displayWorldWeather-Location-" + textsize);
 	
 	// Load the values into the hidden field
 	//document.getElementById("worldweatherMoreData-PassXML").setAttribute("value", current_links);
@@ -126,7 +128,7 @@ function initiateWorldWeather() {
 	var worldweather_prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("worldweather.");
 
 	// If any of the preferences aren't set, display the options dialog.
-	if (worldweather_prefs.getPrefType("zipcode") == 0 || worldweather_prefs.getPrefType("refresh") == 0 || worldweather_prefs.getPrefType("interval") == 0 || worldweather_prefs.getPrefType("iconsize") == 0 || worldweather_prefs.getPrefType("unittype") == 0) {
+	if (worldweather_prefs.getPrefType("zipcode") == 0 || worldweather_prefs.getPrefType("refresh") == 0 || worldweather_prefs.getPrefType("interval") == 0 || worldweather_prefs.getPrefType("iconsize") == 0 || worldweather_prefs.getPrefType("textsize") == 0 || worldweather_prefs.getPrefType("unittype") == 0) {
 		window.openDialog('chrome://worldweather/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome');
 	} else if (worldweather_prefs.getCharPref("interval") < 30) {
 		window.openDialog('chrome://worldweather/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome');
@@ -137,9 +139,10 @@ function initiateWorldWeather() {
 		var refresh = worldweather_prefs.getBoolPref("refresh");
 		var interval = worldweather_prefs.getCharPref("interval");
 		var iconsize = worldweather_prefs.getCharPref("iconsize");
+		var textsize = worldweather_prefs.getCharPref("textsize");
 		var unittype = worldweather_prefs.getCharPref("unittype");
 
-		getWorldWeather(zipcode,iconsize,unittype);
+		getWorldWeather(zipcode,iconsize,textsize,unittype);
 
 		// If the user wants to auto-refresh, call this function again in x minutes
 		if(refresh){
