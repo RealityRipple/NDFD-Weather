@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+	
+		<em:id>{00523230-1628-11d9-9669-0800200c9a66}</em:id>
+		<em:name>World Weather</em:name>
+		<em:version>1.0</em:version>
+		<em:description>Display local weather information from around the world.</em:description>
+		<em:creator>Luke Fessler</em:creator>
+		<em:contributor>Matt Moyer</em:contributor>
+		<em:homepageURL>http://worldweather.mozdev.org/</em:homepageURL>
+		
+		<em:optionsURL>chrome://worldweather/content/worldweatherOptions.xul</em:optionsURL>
+
+		<em:file>
+			<Description about="urn:mozilla:extension:file:worldweather.jar">
+				<em:package>content/worldweather/</em:package>
+			        <em:locale>locale/en-US/worldweather/</em:locale>
+			        <em:skin>skin/classic/worldweather/</em:skin>
+			</Description>
+		</em:file>
+		
+		<em:targetApplication>
+			<Description>
+        			<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        			<em:minVersion>0.5</em:minVersion>
+        			<em:maxVersion>1.0</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	
+	</Description>
+
+</RDF>

@@ -1,0 +1,30 @@
+#worldweatherDeck {
+  padding: 5px;
+  text-align: center;
+  background-color: white;
+  border-style: solid;
+  border-color: #666666;
+  border-width: 1px;
+}
+
+#worldweatherDeck > * > * {
+  font-family: verdana, arial, sans-serif;
+}
+
+#worldweatherInfo > * {
+  margin: 0px;
+}
+
+#displayWorldWeather-Temperature {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#worldweatherError > *, #worldweatherLoading > * {
+  margin-top: 5px;
+}
+
+.tooltip-label {
+  text-align: right;
+  font-weight: bold;
+}
