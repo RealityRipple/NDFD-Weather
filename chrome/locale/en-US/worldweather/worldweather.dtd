@@ -4,7 +4,7 @@
 <!ENTITY menu-options:accesskey        "O">
 <!ENTITY menu-featured:label           "Featured on weather.com">
 <!ENTITY menu-featured:accesskey       "F">
-<!ENTITY sidebar-header:label          "Weather data provided by weather.com">
+<!ENTITY sidebar-header:label          "Weather">
 <!ENTITY tooltip-reportedat            "Reported at:">
 <!ENTITY tooltip-lastupdated           "Last updated:">
 <!ENTITY tooltip-sunrise	       "Sunrise:">
