@@ -7,6 +7,8 @@
 <!ENTITY sidebar-header:label          "Weather data provided by weather.com">
 <!ENTITY tooltip-reportedat            "Reported at:">
 <!ENTITY tooltip-lastupdated           "Last updated:">
+<!ENTITY tooltip-sunrise	       "Sunrise:">
+<!ENTITY tooltip-sunset                "Sunset:">
 <!ENTITY tooltip-temperature           "Temperature:">
 <!ENTITY tooltip-feelslike             "Feels like:">
 <!ENTITY tooltip-wind                  "Wind:">

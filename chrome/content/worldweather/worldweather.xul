@@ -73,6 +73,14 @@
 							<description id="worldweatherMoreData-Humidity" />
 						</row>
 						<row>
+							<description class="tooltip-label" value="&tooltip-sunrise;" />
+							<description id="worldweatherMoreData-Sunrise" />
+						</row>
+						<row>
+							<description class="tooltip-label" value="&tooltip-sunset;" />
+							<description id="worldweatherMoreData-Sunset" />
+						</row>
+						<row>
 							<description class="tooltip-label" value="&tooltip-reportedat;" />
 							<description id="worldweatherMoreData-ReportedAt" />
 						</row>

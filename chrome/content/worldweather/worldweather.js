@@ -9,7 +9,7 @@ function getWorldWeather(zipcode,iconsize,unittype) { // Gets weather data from 
 	var worldweatherRequest = new XMLHttpRequest();
 	netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
 	worldweatherRequest.overrideMimeType("text/xml");
-	worldweatherRequest.open("GET", "http://xoap.weather.com/weather/local/" + zipcode + "?cc=*&unit=" + unittype + "&link=xoap&prod=xoap&par=1005339582&key=6c926e998e80b44e", true);
+	worldweatherRequest.open("GET", "http://xoap.weather.com/weather/local/" + zipcode + "?cc=*&dayf=1&unit=" + unittype + "&link=xoap&prod=xoap&par=1005339582&key=6c926e998e80b44e", true);
 	worldweatherRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
 
 	// Code to execute when you hear back from the web service.
@@ -38,6 +38,8 @@ function getWorldWeather(zipcode,iconsize,unittype) { // Gets weather data from 
 			return_data["Humidity"] = passXML.getElementsByTagName("cc")[0].getElementsByTagName("hmid")[0].firstChild.nodeValue + "%";
 			return_data["ReportedAt"] = passXML.getElementsByTagName("cc")[0].getElementsByTagName("obst")[0].firstChild.nodeValue;
 			return_data["LastUpdated"] = passXML.getElementsByTagName("cc")[0].getElementsByTagName("lsup")[0].firstChild.nodeValue;
+			return_data["Sunrise"] = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[0].getElementsByTagName("sunr")[0].firstChild.nodeValue;
+			return_data["Sunset"] = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[0].getElementsByTagName("suns")[0].firstChild.nodeValue;
 			
 			if(passXML.getElementsByTagName("cc")[0].getElementsByTagName("wind")[0].getElementsByTagName("s")[0].firstChild.nodeValue == "calm") {
 				return_data["Wind"] =  "Calm"
