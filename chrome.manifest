@@ -1,0 +1,11 @@
+content	worldweatherplus	jar:chrome/worldweatherplus.jar!/content/worldweatherplus/
+
+overlay	chrome://messenger/content/messenger.xul	chrome://worldweatherplus/content/worldweather.xul
+overlay	chrome://emusic/content/nav.xul	chrome://worldweatherplus/content/worldweather.xul
+
+skin	worldweatherplus	classic/1.0	jar:chrome/worldweatherplus.jar!/skin/classic/worldweatherplus/
+
+style	chrome://messenger/content/messenger.xul	chrome://worldweatherplus/skin/worldweather.css
+style	chrome://emusic/content/nav.xul	chrome://worldweatherplus/skin/worldweather.css
+
+locale	worldweatherplus	en-US	jar:chrome/worldweatherplus.jar!/locale/en-US/worldweatherplus/

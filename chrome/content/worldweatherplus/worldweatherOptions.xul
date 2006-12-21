@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://worldweatherplus/skin/worldweatherOptions.css" type="text/css"?> 
+
+<!DOCTYPE window [
+<!ENTITY % worldweatherOptionsDTD SYSTEM "chrome://worldweatherplus/locale/worldweatherOptions.dtd"> %worldweatherOptionsDTD;
+<!ENTITY % worldweatherLocationSearchDTD SYSTEM "chrome://worldweatherplus/locale/worldweatherLocationSearch.dtd"> %worldweatherLocationSearchDTD;
+]>
+
+<dialog
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	id="worldweatherOptionsWindow"
+	persist="screenX screenY"
+	title="&window-title;"
+	buttons="accept, cancel"
+	onload="initWorldWeatherOptions();"
+	ondialogaccept="return saveWorldWeatherOptions();">
+
+	
+	
+	<script type="application/x-javascript" src="worldweatherOptions.js"/>
+	<script type="application/x-javascript" src="worldweatherLocationSearch.js"/>
+
+	<tabbox id="wf_tabbox">
+		<tabs>
+			<tab label="&tabname-location-label;"/>
+			<tab label="&tabname-currentconditions-label;"/>
+			<tab label="&tabname-about-label;"/>
+		</tabs>
+		<tabpanels flex="1">
+			<tabpanel orient="vertical" flex="1">
+				<vbox>
+					<groupbox orient="vertical">
+						<caption label="&location-box-label;"/>
+						<hbox align="left">
+							<description>&zip-description;</description>
+							<textbox align="baseline" id="zipcodeInput" size="8" maxlength="8"/>
+						</hbox>
+					</groupbox>
+
+      		<groupbox orient="vertical">
+      			<caption label="&search-box-label;"/>
+      			<hbox align="left">
+      				<description>&search-box-description;</description>
+      				<textbox align="baseline" id="searchInput" size="15" maxlength="75"/>
+      			</hbox>
+      			<button label="&search-button-label;" oncommand="initiateWorldWeatherLocationSearch(document.getElementById('searchInput').value); return false;"/>
+            <seperator />
+      			<caption label="&searchresult-box-label;"/>
+      			<listbox id="searchResults" seltype="single" rows="5" onclick="setWorldWeatherLocationSearch();"/>
+      		</groupbox>
+				</vbox>
+			</tabpanel>
+		
+			<tabpanel orient="vertical" flex="1">
+				<vbox>
+					<groupbox>
+						<caption label="&unittype-box-label;"/>
+						<radiogroup id="unittypeGroup">
+							<hbox>
+								<radio id="unittypeStandard" value="s" accesskey="S" label="&unittype-standard-label;"/>
+								<radio id="unittypeMetric" value="m" accesskey="M" label="&unittype-metric-label;"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>
+
+					<groupbox>
+						<caption label="&iconsize-box-label;"/>
+						<radiogroup id="iconsizeGroup">
+							<hbox>
+								<radio id="iconsizeSmall" value="small" accesskey="S" label="&iconsize-small-label;"/>
+								<radio id="iconsizeMedium" value="medium" accesskey="M" label="&iconsize-medium-label;"/>
+								<radio id="iconsizeLarge" value="large" accesskey="L" label="&iconsize-large-label;"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>
+
+					<groupbox>
+						<caption label="&textsize-box-label;"/>
+						<radiogroup id="textsizeGroup">
+							<hbox>
+								<radio id="textsizeSmall" value="small" accesskey="" label="&textsize-small-label;"/>
+								<radio id="textsizeMedium" value="medium" accesskey="" label="&textsize-medium-label;"/>
+								<radio id="textsizeLarge" value="large" accesskey="" label="&textsize-large-label;"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>
+
+					<groupbox>
+						<caption label="&refresh-box-label;"/>
+						<radiogroup id="refreshGroup">
+							<radio id="refreshNo" value="no" label="&refresh-no-label;"/>
+							<hbox>
+								<radio id="refreshYes" value="yes" label="&refresh-yes-label;"/>
+								<textbox align="baseline" id="refreshMinutes" size="3" maxlength="3"/>
+							</hbox>
+						</radiogroup>
+					</groupbox>					
+				</vbox>
+			</tabpanel>
+			<tabpanel orient="vertical" flex="1">
+				<hbox align="middle">
+					<vbox flex="1" align="center">
+						<html:a href="http://www.weather.com/?prod=xoap&amp;par=1030266584"><image src="logo.png"/></html:a>
+					</vbox>
+					<vbox>
+						<description> </description>
+					</vbox>
+					<vbox flex="1" pack="end">
+						<description>&created-by;<html:br/>Matt Moyer</description>
+						<description>&updated-by;<html:br/>Luke Fessler</description>
+						<description>&updated-by;<html:br/><html:a href="mailto:mrtech@gmail.com">Mel Reyes</html:a></description>
+						<description>&thanks-before;<html:br/><html:a href="http://www.weather.com/?prod=xoap&amp;par=1030266584">weather.com</html:a><html:br/></description>
+					</vbox>
+				</hbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</dialog>

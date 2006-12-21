@@ -1,0 +1,68 @@
+#worldweatherDeck {
+  padding: 5px;
+  text-align: center;
+  background-color: white !important;
+  border-style: solid;
+  border-color: #666666 !important;
+  border-width: 1px;
+}
+
+#worldweatherDeck > * > * {
+  font-family: Verdana, sans-serif;
+  color: Navy;
+}
+
+#worldweatherInfo > * {
+  margin: 0px;
+}
+
+.displayWorldWeather-Temperature-small {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.displayWorldWeather-Temperature-medium {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.displayWorldWeather-Temperature-large {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.displayWorldWeather-Location-small {
+  font-size: .5em;
+}
+
+.displayWorldWeather-Location-medium {
+  font-size: .75em;
+}
+
+.displayWorldWeather-Location-large {
+  font-size: 1em;
+}
+
+#worldweatherError > *, #worldweatherLoading > * {
+  margin-top: 5px;
+}
+
+.tooltip-label {
+  text-align: right;
+  font-weight: bold;
+}
+
+.displayWorldWeather-Icon-large {
+  width: 128px;
+  height: 128px;
+}
+
+.displayWorldWeather-Icon-medium {
+  width: 64px;
+  height: 64px;
+}
+
+.displayWorldWeather-Icon-small {
+  width: 32px;
+  height: 32px;
+}
