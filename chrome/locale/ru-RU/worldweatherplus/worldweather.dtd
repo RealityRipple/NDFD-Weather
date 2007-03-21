@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Обновить">
+<!ENTITY menu-refresh-accesskey "О">
+<!ENTITY menu-options-label "Настройки">
+<!ENTITY menu-options-accesskey "Н">
+<!ENTITY menu-featured-label "Представлено на weather.com">
+<!ENTITY menu-featured-accesskey "П">
+<!ENTITY sidebar-header-label "Погода">
+<!ENTITY tooltip-reportedat "Сообщено на:">
+<!ENTITY tooltip-lastupdated "Последнее обновление:">
+<!ENTITY tooltip-sunrise "Восход солнца:">
+<!ENTITY tooltip-sunset "Заход солнца:">
+<!ENTITY tooltip-temperature "Температура:">
+<!ENTITY tooltip-feelslike "Ощущаемая температура:">
+<!ENTITY tooltip-wind "Ветер:">
+<!ENTITY tooltip-forecast "Текущее состояние:">
+<!ENTITY tooltip-visibility "Видимость:">
+<!ENTITY tooltip-pressure "Атмосферное давление:">
+<!ENTITY tooltip-dewpoint "Точка росы:">
+<!ENTITY tooltip-uvindex "Индекс UV:">
+<!ENTITY tooltip-humidity "Влажность:">
+<!ENTITY loading "Загрузка...">
+<!ENTITY error-message "Ошибка при получении данных о погоде.">
+<!ENTITY error-button "Повторить?">

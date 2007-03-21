@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Odśwież">
+<!ENTITY menu-refresh-accesskey "D">
+<!ENTITY menu-options-label "Opcje">
+<!ENTITY menu-options-accesskey "O">
+<!ENTITY menu-featured-label "Featured on weather.com">
+<!ENTITY menu-featured-accesskey "F">
+<!ENTITY sidebar-header-label "Pogoda">
+<!ENTITY tooltip-reportedat "Reported at:">
+<!ENTITY tooltip-lastupdated "Ostatnia aktualizacja">
+<!ENTITY tooltip-sunrise "Wschód słońca">
+<!ENTITY tooltip-sunset "Zachód słońca">
+<!ENTITY tooltip-temperature "Temperatura:">
+<!ENTITY tooltip-feelslike "Temperatura odczuwalna:">
+<!ENTITY tooltip-wind "Wiatr:">
+<!ENTITY tooltip-forecast "Aktualna pogoda:">
+<!ENTITY tooltip-visibility "Widzialność:">
+<!ENTITY tooltip-pressure "Ciśnienie:">
+<!ENTITY tooltip-dewpoint "Punkt rosy:">
+<!ENTITY tooltip-uvindex "Indeks promieniowania UV:">
+<!ENTITY tooltip-humidity "Wilgotność:">
+<!ENTITY loading "Wczytywanie:">
+<!ENTITY error-message "Błąd pobierania danych pogodowych">
+<!ENTITY error-button "Spróbuj ponownie">

@@ -1,0 +1,5 @@
+<!ENTITY window-title "World Weather - Hľadanie ID lokality">
+<!ENTITY search-box-label "Hľadanie ID lokality">
+<!ENTITY search-box-description "Zadajte ako &apos;Mesto, Štát&apos;; &apos;Mesto, Krajina&apos;; &apos;Mesto&apos;; alebo &apos;ZIP kód&apos;">
+<!ENTITY search-button-label "Hľadanie">
+<!ENTITY searchresult-box-label "Výber výsledku">

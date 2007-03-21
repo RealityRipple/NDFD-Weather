@@ -1,0 +1,31 @@
+<!ENTITY window-title "Настройки World Weather">
+<!ENTITY location-box-label "Местоположение">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "Ваш 5-значный почтовый индекс США или 8-значный интернациональный код местоположения <html:br/>(от weather.com):">
+<!ENTITY zip-accesskey "к">
+<!ENTITY international-notice "(Международная поддержка намечена для будущей разработки.)">
+<!ENTITY refresh-box-label "Обновить">
+<!ENTITY refresh-no-label "Никогда не обновлять автоматически">
+<!ENTITY refresh-yes-label "Обновлять каждые __ минут(ы)">
+<!ENTITY about-box-label "О">
+<!ENTITY iconsize-box-label "Размер значков текущего состояния погоды">
+<!ENTITY iconsize-small-label "Маленький">
+<!ENTITY iconsize-small-label-accesskey   "">
+<!ENTITY iconsize-medium-label "Средний">
+<!ENTITY iconsize-medium-label-accesskey  "">
+<!ENTITY iconsize-large-label "Большой">
+<!ENTITY iconsize-large-label-accesskey   "">
+<!ENTITY textsize-box-label "Размер текста текущего состояния погоды">
+<!ENTITY textsize-small-label "Маленький">
+<!ENTITY textsize-medium-label "Средний">
+<!ENTITY textsize-large-label "Большой">
+<!ENTITY unittype-box-label "Единицы измерения">
+<!ENTITY unittype-standard-label "Стандартные">
+<!ENTITY unittype-metric-label "Метрические">
+<!ENTITY tabname-location-label "Местоположение">
+<!ENTITY tabname-currentconditions-label "Текущее состояние">
+<!ENTITY tabname-about-label "О">
+<!ENTITY created-by "Это расширение изначально разработано">
+<!ENTITY updated-by "Это расширение было перепроектировано и поддерживается">
+<!ENTITY support "Для поддержки или чтобы сообщить об ошибке посетите">
+<!ENTITY thanks-before "Данные о погоде предоставлены">

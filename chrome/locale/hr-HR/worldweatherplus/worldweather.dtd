@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Osvježi">
+<!ENTITY menu-refresh-accesskey "s">
+<!ENTITY menu-options-label "Opcije">
+<!ENTITY menu-options-accesskey "O">
+<!ENTITY menu-featured-label "Uobličeno na weather.com">
+<!ENTITY menu-featured-accesskey "U">
+<!ENTITY sidebar-header-label "Vrijeme">
+<!ENTITY tooltip-reportedat "Izvještaj na:">
+<!ENTITY tooltip-lastupdated "Zadnji put ažurirano:">
+<!ENTITY tooltip-sunrise "Izlazak sunca:">
+<!ENTITY tooltip-sunset "Zalazak sunca:">
+<!ENTITY tooltip-temperature "Temperatura:">
+<!ENTITY tooltip-feelslike "Osjeća se kao:">
+<!ENTITY tooltip-wind "Vjetar:">
+<!ENTITY tooltip-forecast "Trenutni uvjeti:">
+<!ENTITY tooltip-visibility "Vidljivost:">
+<!ENTITY tooltip-pressure "Barometarski tlak:">
+<!ENTITY tooltip-dewpoint "Točka kondenzacije:">
+<!ENTITY tooltip-uvindex "UV indeks:">
+<!ENTITY tooltip-humidity "Vlažnost:">
+<!ENTITY loading "Učitavanje...">
+<!ENTITY error-message "Greška prilikom dohvaćanja podataka.">
+<!ENTITY error-button "Ponovno pokušati?">

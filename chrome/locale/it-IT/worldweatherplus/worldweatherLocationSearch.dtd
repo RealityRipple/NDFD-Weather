@@ -1,0 +1,5 @@
+<!ENTITY window-title "Ricerca codice località di World Weather">
+<!ENTITY search-box-label "Ricerca codice località di weather.com">
+<!ENTITY search-box-description "Inserire come &apos;Città, Stato&apos;; &apos;Città, Nazione&apos;; &apos;Città&apos;; o &apos;Codice zip&apos;">
+<!ENTITY search-button-label "Cerca">
+<!ENTITY searchresult-box-label "Seleziona un risultato">

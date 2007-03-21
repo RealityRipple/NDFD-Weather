@@ -5,26 +5,37 @@
 	<Description about="urn:mozilla:install-manifest">
 	
 		<em:id>{90bcd2b0-08f1-4db8-a136-8263c3f89cc8}</em:id>
-		<em:name>WorldWeather+</em:name>
-		<em:version>2.0</em:version>
+		<em:name>World Weather+</em:name>
+		<em:version>2.1</em:version>
 		<em:description>Display local weather information from around the world.</em:description>
 		<em:creator>Mel Reyes</em:creator>
 		<em:contributor>Original code by Luke Fessler</em:contributor>
 		<em:contributor>Updated by Matt Moyer</em:contributor>
 		
 		<em:homepageURL>http://www.mrtech.com/extensions/</em:homepageURL>
-		
+    <em:iconURL>chrome://worldweatherplus/content/ww.png</em:iconURL>
+	
 		<em:optionsURL>chrome://worldweatherplus/content/worldweatherOptions.xul</em:optionsURL>
 
     <em:file>
       <Description about="urn:mozilla:extension:file:worldweatherplus.jar">
         <em:package>content/worldweatherplus/</em:package>
         <em:locale>locale/en-US/worldweatherplus/</em:locale>
+        <em:locale>locale/fi-FI/worldweatherplus/</em:locale>
+        <em:locale>locale/fr-FR/worldweatherplus/</em:locale>
+        <em:locale>locale/hr-HR/worldweatherplus/</em:locale>
+        <em:locale>locale/hu-HU/worldweatherplus/</em:locale>
+        <em:locale>locale/it-IT/worldweatherplus/</em:locale>
+        <em:locale>locale/nl-NL/worldweatherplus/</em:locale>
+        <em:locale>locale/pl/worldweatherplus/</em:locale>
+        <em:locale>locale/pt-PT/worldweatherplus/</em:locale>
+        <em:locale>locale/ru-RU/worldweatherplus/</em:locale>
+        <em:locale>locale/sk/worldweatherplus/</em:locale>
         <em:skin>skin/classic/worldweatherplus/</em:skin>
       </Description>
     </em:file>
     
-    <em:targetApplication>
+    <em:targetApplication> <!-- Thunderbird -->
       <Description>
         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
         <em:minVersion>1.0</em:minVersion>
@@ -32,14 +43,23 @@
       </Description>
     </em:targetApplication>
 	
-    <em:targetApplication>
+    <em:targetApplication> <!-- eMusic DLM -->
       <Description>
         <em:id>dlm@emusic.com</em:id>
-        <em:minVersion>3.9</em:minVersion>
+        <em:minVersion>4.0a1</em:minVersion>
         <em:maxVersion>4.0.0.*</em:maxVersion>
       </Description>
     </em:targetApplication>
-	
+ 
+    <em:targetApplication> <!-- Sunbird -->
+      <Description>
+        <em:id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</em:id>
+        <em:minVersion>0.3.1</em:minVersion>
+        <em:maxVersion>0.6a1</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+
 	</Description>
 
 </RDF>

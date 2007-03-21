@@ -1,0 +1,5 @@
+<!ENTITY window-title "Pesquisa de Localização do ID no World Weather">
+<!ENTITY search-box-label "Pesquisa de Localização do ID em weather.com">
+<!ENTITY search-box-description "Introduza como &apos;Cidade, Estado&apos;; &apos;Cidade, País&apos;; &apos;Cidade&apos;; ou &apos;Código Postal&apos;">
+<!ENTITY search-button-label "Pesquisar">
+<!ENTITY searchresult-box-label "Seleccionar um Resultado">

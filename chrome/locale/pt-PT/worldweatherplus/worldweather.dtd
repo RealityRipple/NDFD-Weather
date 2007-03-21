@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Actualizar">
+<!ENTITY menu-refresh-accesskey "A">
+<!ENTITY menu-options-label "Opções">
+<!ENTITY menu-options-accesskey "O">
+<!ENTITY menu-featured-label "Incluído no weather.com">
+<!ENTITY menu-featured-accesskey "I">
+<!ENTITY sidebar-header-label "Tempo">
+<!ENTITY tooltip-reportedat "Localização:">
+<!ENTITY tooltip-lastupdated "Última actualização:">
+<!ENTITY tooltip-sunrise "Nascer do Sol:">
+<!ENTITY tooltip-sunset "Pôr do sol:">
+<!ENTITY tooltip-temperature "Temperatura:">
+<!ENTITY tooltip-feelslike "Apetece como:">
+<!ENTITY tooltip-wind "Vento:">
+<!ENTITY tooltip-forecast "Condições Actuais:">
+<!ENTITY tooltip-visibility "Visibilidade:">
+<!ENTITY tooltip-pressure "Pressão Barométrica:">
+<!ENTITY tooltip-dewpoint "Ponto de orvalho:">
+<!ENTITY tooltip-uvindex "Índice de UV:">
+<!ENTITY tooltip-humidity "Humidade:">
+<!ENTITY loading "A Carregar...">
+<!ENTITY error-message "Erro a receber os dados sobre o Tempo.">
+<!ENTITY error-button "Tentar de novo?">

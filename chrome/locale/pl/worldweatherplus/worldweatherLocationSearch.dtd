@@ -1,0 +1,5 @@
+<!ENTITY window-title "Wyszukiwanie ID lokalizacji">
+<!ENTITY search-box-label "Wyszukiwanie ID lokalizacji">
+<!ENTITY search-box-description "Wprowadź jako &quot;Miasto, Województwo&quot;, Miasto, Kraj&quot; lub &quot;Kod Zip&quot;">
+<!ENTITY search-button-label "Szukaj">
+<!ENTITY searchresult-box-label "Wynik szukania">

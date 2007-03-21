@@ -1,0 +1,28 @@
+<!ENTITY window-title "Opzioni di World Weather">
+<!ENTITY location-box-label "Località">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "I 5 caratteri dell&apos;US Zipcode o gli 8 caratteri del codice di località internazionale <html:br/>(da weather.com):">
+<!ENTITY zip-accesskey "Z">
+<!ENTITY international-notice "(Supporto internazionale previsto in aggiornamenti futuri.)">
+<!ENTITY refresh-box-label "Aggiorna">
+<!ENTITY refresh-no-label "Non aggiornare automaticamente">
+<!ENTITY refresh-yes-label "Aggiorna ogni __ minuti">
+<!ENTITY about-box-label "Informazioni">
+<!ENTITY iconsize-box-label "Dimensione icona Condizioni correnti">
+<!ENTITY iconsize-small-label "Piccola">
+<!ENTITY iconsize-medium-label "Media">
+<!ENTITY iconsize-large-label "Grande">
+<!ENTITY textsize-box-label "Dimensione testo Condizioni correnti">
+<!ENTITY textsize-small-label "Piccola">
+<!ENTITY textsize-medium-label "Media">
+<!ENTITY textsize-large-label "Grande">
+<!ENTITY unittype-box-label "Sistema di misurazione">
+<!ENTITY unittype-standard-label "Americano">
+<!ENTITY unittype-metric-label "Metrico">
+<!ENTITY tabname-location-label "Località">
+<!ENTITY tabname-currentconditions-label "Condizioni correnti">
+<!ENTITY tabname-about-label "Informazioni">
+<!ENTITY created-by "Versione originale dell&apos;estensione creata da:">
+<!ENTITY updated-by "Estensione ridisegnata e aggiornata da:">
+<!ENTITY support "Per supporto tecnico o segnalare un bug, consultare">
+<!ENTITY thanks-before "Dati meteorologici forniti da:">

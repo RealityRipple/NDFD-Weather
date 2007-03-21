@@ -4,7 +4,7 @@ var weatherWatcher = {
   myTimeout: null,
   zipcode: null,
 	refresh: null,
-	interval: null,
+	interval: 0,
 	iconsize: null,
 	textsize: null,
 	unittype: null,
@@ -69,7 +69,7 @@ var weatherWatcher = {
   	worldweatherRequest.onload = function parse() {
   		
   		// Clear the timeout we set when we sent the request below 
-  		clearTimeout(weatherWatcher.myTimeout);
+  		clearTimeout(this.myTimeout);
   
   		// Try to parse the data we need
   		var return_data = new Array();
@@ -78,14 +78,14 @@ var weatherWatcher = {
   			
   			var passXML = worldweatherRequest.responseXML;
   			
-  			var passTagLOC = passXML.getElementsByTagName("loc")[0]
-  			var passTagCC = passXML.getElementsByTagName("cc")[0]
-  			var passTagHEAD = passXML.getElementsByTagName("head")[0]
-  			var passTagDAYF = passXML.getElementsByTagName("dayf")[0]
+  			var passTagLOC    = passXML.getElementsByTagName("loc")[0]
+  			var passTagCC     = passXML.getElementsByTagName("cc")[0]
+  			var passTagHEAD   = passXML.getElementsByTagName("head")[0]
+  			var passTagDAYF   = passXML.getElementsByTagName("dayf")[0]
   			
   			return_data["Location"]      = passTagLOC.getElementsByTagName("dnam")[0].firstChild.nodeValue;
   			return_data["IconIndex"]     = passTagCC.getElementsByTagName("icon")[0].firstChild.nodeValue;
-  			return_data["Temprature"]    = passTagCC.getElementsByTagName("tmp")[0].firstChild.nodeValue + "\u00b0 " + passTagHEAD.getElementsByTagName("ut")[0].firstChild.nodeValue;
+  			return_data["Temperature"]   = passTagCC.getElementsByTagName("tmp")[0].firstChild.nodeValue + "\u00b0 " + passTagHEAD.getElementsByTagName("ut")[0].firstChild.nodeValue;
   			return_data["FeelsLike"]     = passTagCC.getElementsByTagName("flik")[0].firstChild.nodeValue + "\u00b0 " + passTagHEAD.getElementsByTagName("ut")[0].firstChild.nodeValue;
   			return_data["Forecast"]      = passTagCC.getElementsByTagName("t")[0].firstChild.nodeValue;
   			return_data["Visibility"]    = passTagCC.getElementsByTagName("vis")[0].firstChild.nodeValue + " " + passTagHEAD.getElementsByTagName("ud")[0].firstChild.nodeValue;
@@ -146,6 +146,12 @@ var weatherWatcher = {
   
   displayWorldWeather: function() {
 
+  // If the user wants to auto-refresh, call this function again in x minutes
+    clearTimeout(this.myTimeout);
+    if (this.refresh) {
+      this.myTimeout = setTimeout(weatherWatcher.initiateWorldWeather, this.interval * 60 * 1000);
+    }
+
     weatherWatcher.refreshPrefs();
 
   	// gets reference to localized strings
@@ -153,23 +159,31 @@ var weatherWatcher = {
   
   	// if the weather server is down, display the error message (the string "Error" doesn't really mean anything)
   	if (weatherWatcher.current_worldweather == "Error") {
-  	  document.getElementById("displayWorldWeather-IconError").setAttribute("class", "displayWorldWeather-Icon-" + this.iconsize);
-  		document.getElementById("displayWorldWeather-IconError").setAttribute("src", "chrome://worldweatherplus/skin/icons/large/na.png");
+  	  document.getElementById("displayWorldWeather-IconError")
+        .setAttribute("class", "displayWorldWeather-Icon-" + this.iconsize);
+  		document.getElementById("displayWorldWeather-IconError")
+        .setAttribute("src", "chrome://worldweatherplus/skin/icons/large/na.png");
   		document.getElementById('worldweatherDeck').selectedIndex = '2';
   		return true;
   	}
   
   	// Load the current icon into the display
-  	document.getElementById("displayWorldWeather-Icon").setAttribute("class", "displayWorldWeather-Icon-" + this.iconsize);
-  	document.getElementById("displayWorldWeather-Icon").setAttribute("src", "chrome://worldweatherplus/skin/icons/large/" + weatherWatcher.current_worldweather["IconIndex"] + ".png");
-  
+  	document.getElementById("displayWorldWeather-Icon")
+      .setAttribute("class", "displayWorldWeather-Icon-" + this.iconsize);
+  	document.getElementById("displayWorldWeather-Icon")
+      .setAttribute("src", "chrome://worldweatherplus/skin/icons/large/" + weatherWatcher.current_worldweather["IconIndex"] + ".png");
+
   	// Load the current temperature into the display
-  	document.getElementById("displayWorldWeather-Temperature").setAttribute("value", weatherWatcher.current_worldweather["Temprature"]);
-  	document.getElementById("displayWorldWeather-Temperature").setAttribute("class", "displayWorldWeather-Temperature-" + this.textsize);
+  	document.getElementById("displayWorldWeather-Temperature")
+      .setAttribute("value", weatherWatcher.current_worldweather["Temperature"]);
+  	document.getElementById("displayWorldWeather-Temperature")
+      .setAttribute("class", "displayWorldWeather-Temperature-" + this.textsize);
   
   	// Load the location into the display
-  	document.getElementById("displayWorldWeather-Location").setAttribute("value", weatherWatcher.current_worldweather["Location"]);
-  	document.getElementById("displayWorldWeather-Location").setAttribute("class", "displayWorldWeather-Location-" + this.textsize);
+  	document.getElementById("displayWorldWeather-Location")
+      .setAttribute("value", weatherWatcher.current_worldweather["Location"]);
+  	document.getElementById("displayWorldWeather-Location")
+      .setAttribute("class", "displayWorldWeather-Location-" + this.textsize);
   	
   	// Load the values into the hidden field
   	document.getElementById("worldweatherMoreData-PassXML").setAttribute("value", weatherWatcher.current_links);
@@ -177,7 +191,8 @@ var weatherWatcher = {
   	// Populate the tooltip grid
   	for (var value in weatherWatcher.current_worldweather) {
   		if (document.getElementById("worldweatherMoreData-" + value) != null){
-  			document.getElementById("worldweatherMoreData-" + value).setAttribute("value", weatherWatcher.current_worldweather[value]);
+  			document.getElementById("worldweatherMoreData-" + value)
+          .setAttribute("value", weatherWatcher.current_worldweather[value]);
   		}
   	}
   
@@ -189,23 +204,12 @@ var weatherWatcher = {
   
   // Function called on start up and every time weather refreshes
   initiateWorldWeather: function() {
-  	// Get current user preferences
-  	weatherWatcher.worldweather_prefs = Components.classes["@mozilla.org/preferences-service;1"]
-                               .getService(Components.interfaces.nsIPrefService)
-                               .getBranch("worldweather.");
-  
-  	// If any of the preferences aren't set, display the options dialog.
-  	if (weatherWatcher.worldweather_prefs.getPrefType("zipcode") == 0 || weatherWatcher.worldweather_prefs.getPrefType("refresh") == 0 || weatherWatcher.worldweather_prefs.getPrefType("interval") == 0 || weatherWatcher.worldweather_prefs.getPrefType("iconsize") == 0 || weatherWatcher.worldweather_prefs.getPrefType("textsize") == 0 || weatherWatcher.worldweather_prefs.getPrefType("unittype") == 0) {
-  		window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome');
-  	} else if (weatherWatcher.worldweather_prefs.getCharPref("interval") < 30) {
-  		window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome');
+  	if (weatherWatcher.worldweather_prefs.getCharPref("zipcode") == "" ||
+        weatherWatcher.worldweather_prefs.getIntPref("interval") < 30)    {
+      clearTimeout(this.myTimeout)
+  		window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome,modal');
   	}	else {
   		weatherWatcher.getWorldWeather();
-  
-  		// If the user wants to auto-refresh, call this function again in x minutes
-  		if(this.refresh){
-  			setTimeout("weatherWatcher.initiateWorldWeather()", this.interval * 60 * 1000);
-  		}
   	}
   },
   
@@ -213,7 +217,7 @@ var weatherWatcher = {
 	  // Otherwise, load the preferences and get the current conditions from the web
 		this.zipcode = weatherWatcher.worldweather_prefs.getCharPref("zipcode");
 		this.refresh = weatherWatcher.worldweather_prefs.getBoolPref("refresh");
-		this.interval = weatherWatcher.worldweather_prefs.getCharPref("interval");
+		this.interval = weatherWatcher.worldweather_prefs.getIntPref("interval");
 		this.iconsize = weatherWatcher.worldweather_prefs.getCharPref("iconsize");
 		this.textsize = weatherWatcher.worldweather_prefs.getCharPref("textsize");
 		this.unittype = weatherWatcher.worldweather_prefs.getCharPref("unittype");
@@ -225,4 +229,4 @@ window.addEventListener("load", function() { weatherWatcher.register(); } , fals
 window.addEventListener("unload", function() { weatherWatcher.unregister(); } , false);
 
 // Put the whole shebang in motion once thunderbird loads.
-addEventListener("load", function() { setTimeout(weatherWatcher.initiateWorldWeather, 500)}, false);
+window.addEventListener("load", function() { setTimeout(weatherWatcher.initiateWorldWeather, 500)}, false);

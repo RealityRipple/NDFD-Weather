@@ -1,0 +1,28 @@
+<!ENTITY window-title "Options de World Weather">
+<!ENTITY location-box-label "Localisation">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "Entrez les 5 chiffres de votre code postal (US) ou les 8 caractères du code international de localisation <html:br/>(d&apos;après weather.com) :">
+<!ENTITY zip-accesskey "E">
+<!ENTITY international-notice "(La prise en charge pour l&apos;international est prévu dans les futurs développements.)">
+<!ENTITY refresh-box-label "Actualisation">
+<!ENTITY refresh-no-label "Ne jamais actualiser automatiquement">
+<!ENTITY refresh-yes-label "Actualiser toutes les __ minutes">
+<!ENTITY about-box-label "À propos">
+<!ENTITY iconsize-box-label "Taille de l&apos;îcone pour les conditions actuelles">
+<!ENTITY iconsize-small-label "Petite">
+<!ENTITY iconsize-medium-label "Moyenne">
+<!ENTITY iconsize-large-label "Grande">
+<!ENTITY textsize-box-label "Taille du texte pour les conditions actuelles">
+<!ENTITY textsize-small-label "Petite">
+<!ENTITY textsize-medium-label "Moyenne">
+<!ENTITY textsize-large-label "Grande">
+<!ENTITY unittype-box-label "Unités de mesure">
+<!ENTITY unittype-standard-label "Standard">
+<!ENTITY unittype-metric-label "Métrique">
+<!ENTITY tabname-location-label "Localisation">
+<!ENTITY tabname-currentconditions-label "Conditions courantes">
+<!ENTITY tabname-about-label "À propos">
+<!ENTITY created-by "Création originelle de l&apos;extension par">
+<!ENTITY updated-by "Cette extension a été revue et est maintenue par">
+<!ENTITY support "Pour obtenir de l&apos;aide ou rapporter un bug, aller voir sur">
+<!ENTITY thanks-before "Données météo fournies par">

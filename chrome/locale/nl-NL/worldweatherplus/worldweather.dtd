@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Verversen">
+<!ENTITY menu-refresh-accesskey "V">
+<!ENTITY menu-options-label "Opties">
+<!ENTITY menu-options-accesskey "O">
+<!ENTITY menu-featured-label "Verschenen op weather.com">
+<!ENTITY menu-featured-accesskey "s">
+<!ENTITY sidebar-header-label "Weer">
+<!ENTITY tooltip-reportedat "Gerapporteerd om:">
+<!ENTITY tooltip-lastupdated "Laatst bijgewerkt:">
+<!ENTITY tooltip-sunrise "Zonsopgang:">
+<!ENTITY tooltip-sunset "Zonsondergang:">
+<!ENTITY tooltip-temperature "Temperatuur:">
+<!ENTITY tooltip-feelslike "Gevoelstemperatuur:">
+<!ENTITY tooltip-wind "Wind:">
+<!ENTITY tooltip-forecast "Huidge omstandigheden:">
+<!ENTITY tooltip-visibility "Zicht:">
+<!ENTITY tooltip-pressure "Luchtdruk:">
+<!ENTITY tooltip-dewpoint "Dauwpunt:">
+<!ENTITY tooltip-uvindex "UV index:">
+<!ENTITY tooltip-humidity "Luchtvochtigheid:">
+<!ENTITY loading "Laden...">
+<!ENTITY error-message "Fout bij ophalen weergegevens.">
+<!ENTITY error-button "Opnieuw proberen?">

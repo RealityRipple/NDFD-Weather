@@ -17,8 +17,6 @@
 	buttons="accept, cancel"
 	onload="initWorldWeatherOptions();"
 	ondialogaccept="return saveWorldWeatherOptions();">
-
-	
 	
 	<script type="application/x-javascript" src="worldweatherOptions.js"/>
 	<script type="application/x-javascript" src="worldweatherLocationSearch.js"/>
@@ -60,8 +58,8 @@
 						<caption label="&unittype-box-label;"/>
 						<radiogroup id="unittypeGroup">
 							<hbox>
-								<radio id="unittypeStandard" value="s" accesskey="S" label="&unittype-standard-label;"/>
-								<radio id="unittypeMetric" value="m" accesskey="M" label="&unittype-metric-label;"/>
+								<radio id="unittypeStandard" value="s" label="&unittype-standard-label;"/>
+								<radio id="unittypeMetric" value="m" label="&unittype-metric-label;"/>
 							</hbox>
 						</radiogroup>
 					</groupbox>
@@ -70,9 +68,9 @@
 						<caption label="&iconsize-box-label;"/>
 						<radiogroup id="iconsizeGroup">
 							<hbox>
-								<radio id="iconsizeSmall" value="small" accesskey="S" label="&iconsize-small-label;"/>
-								<radio id="iconsizeMedium" value="medium" accesskey="M" label="&iconsize-medium-label;"/>
-								<radio id="iconsizeLarge" value="large" accesskey="L" label="&iconsize-large-label;"/>
+								<radio id="iconsizeSmall" value="small" label="&iconsize-small-label;"/>
+								<radio id="iconsizeMedium" value="medium" label="&iconsize-medium-label;"/>
+								<radio id="iconsizeLarge" value="large" label="&iconsize-large-label;"/>
 							</hbox>
 						</radiogroup>
 					</groupbox>
@@ -81,9 +79,9 @@
 						<caption label="&textsize-box-label;"/>
 						<radiogroup id="textsizeGroup">
 							<hbox>
-								<radio id="textsizeSmall" value="small" accesskey="" label="&textsize-small-label;"/>
-								<radio id="textsizeMedium" value="medium" accesskey="" label="&textsize-medium-label;"/>
-								<radio id="textsizeLarge" value="large" accesskey="" label="&textsize-large-label;"/>
+								<radio id="textsizeSmall" value="small" label="&textsize-small-label;"/>
+								<radio id="textsizeMedium" value="medium" label="&textsize-medium-label;"/>
+								<radio id="textsizeLarge" value="large" label="&textsize-large-label;"/>
 							</hbox>
 						</radiogroup>
 					</groupbox>

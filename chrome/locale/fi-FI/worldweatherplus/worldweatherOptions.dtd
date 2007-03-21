@@ -1,0 +1,28 @@
+<!ENTITY window-title "World Weather - Asetukset">
+<!ENTITY location-box-label "Sijainti">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "5 merkkinen US-postikoodi tai 8 merkkinen kansainvälinen sijaintikoodi <html:br/>(weather.com:sta):">
+<!ENTITY zip-accesskey "5">
+<!ENTITY international-notice "(Kansainvälinen tuki tulee tulevaisuudessa.)">
+<!ENTITY refresh-box-label "Päivitys">
+<!ENTITY refresh-no-label "Älä koskaan päivitä automaattisesti">
+<!ENTITY refresh-yes-label "Päivitä__minuutin välein.">
+<!ENTITY about-box-label "Tietoja">
+<!ENTITY iconsize-box-label "Tämänhetkisten olosuhteiden kuvakkeen koko">
+<!ENTITY iconsize-small-label "Pieni">
+<!ENTITY iconsize-medium-label "Keskikokoinen">
+<!ENTITY iconsize-large-label "Suuri">
+<!ENTITY textsize-box-label "Tämänhetkisten olosuhteiden tekstin koko">
+<!ENTITY textsize-small-label "Pieni">
+<!ENTITY textsize-medium-label "Keskikokoinen">
+<!ENTITY textsize-large-label "Suuri">
+<!ENTITY unittype-box-label "Mittayksikkö">
+<!ENTITY unittype-standard-label "Fahrenheit">
+<!ENTITY unittype-metric-label "Celsius">
+<!ENTITY tabname-location-label "Sijaniti">
+<!ENTITY tabname-currentconditions-label "Tämänhetkiset olosuhteet">
+<!ENTITY tabname-about-label "Tietoja">
+<!ENTITY created-by "Tämän laajennuksen alunperin teki">
+<!ENTITY updated-by "Tämän laajennuksen uudelleensuunnitteli ja ylläpitää">
+<!ENTITY support "Tukeaksesi tai reportoidaksesi virheestä, vieraile">
+<!ENTITY thanks-before "Säätiedot tarjoaa">
