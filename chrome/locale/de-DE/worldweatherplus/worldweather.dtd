@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Aktualisieren">
+<!ENTITY menu-refresh-accesskey "A">
+<!ENTITY menu-options-label "Einstellungen...">
+<!ENTITY menu-options-accesskey "E">
+<!ENTITY menu-featured-label "Featured on weather.com">
+<!ENTITY menu-featured-accesskey "F">
+<!ENTITY sidebar-header-label "Wetter">
+<!ENTITY tooltip-reportedat "Reported at:">
+<!ENTITY tooltip-lastupdated "Zuletzt aktualisiert:">
+<!ENTITY tooltip-sunrise "Sonnenaufgang:">
+<!ENTITY tooltip-sunset "Sonnenuntergang:">
+<!ENTITY tooltip-temperature "Temperatur:">
+<!ENTITY tooltip-feelslike "Gefühlte Temperatur:">
+<!ENTITY tooltip-wind "Wind:">
+<!ENTITY tooltip-forecast "Current conditions:">
+<!ENTITY tooltip-visibility "Sichtweite:">
+<!ENTITY tooltip-pressure "Barometric Pressure:">
+<!ENTITY tooltip-dewpoint "Taupunkt:">
+<!ENTITY tooltip-uvindex "UV-Index:">
+<!ENTITY tooltip-humidity "Luftfeuchtigkeit">
+<!ENTITY loading "Laden...">
+<!ENTITY error-message "Fehler beim Abruf der Wetterdaten.">
+<!ENTITY error-button "Nochmals versuchen?">

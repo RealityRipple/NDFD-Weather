@@ -1,24 +1,29 @@
 content	worldweatherplus	jar:chrome/worldweatherplus.jar!/content/worldweatherplus/
 
 overlay	chrome://messenger/content/messenger.xul	chrome://worldweatherplus/content/worldweather.xul
-overlay	chrome://emusic/content/nav.xul	chrome://worldweatherplus/content/worldweather.xul
 overlay	chrome://calendar/content/calendar.xul	chrome://worldweatherplus/content/worldweather_sb.xul
 
 skin	worldweatherplus	classic/1.0	jar:chrome/worldweatherplus.jar!/skin/classic/worldweatherplus/
 
 style	chrome://messenger/content/messenger.xul	chrome://worldweatherplus/skin/worldweather.css
-style	chrome://emusic/content/nav.xul	chrome://worldweatherplus/skin/worldweather.css
 style	chrome://calendar/content/calendar.xul	chrome://worldweatherplus/skin/worldweather.css
 
-
 locale	worldweatherplus	en-US	jar:chrome/worldweatherplus.jar!/locale/en-US/worldweatherplus/
+locale	worldweatherplus	ar	jar:chrome/worldweatherplus.jar!/locale/ar/worldweatherplus/
+locale	worldweatherplus	de-DE	jar:chrome/worldweatherplus.jar!/locale/de-DE/worldweatherplus/
 locale	worldweatherplus	fi-FI	jar:chrome/worldweatherplus.jar!/locale/fi-FI/worldweatherplus/
 locale	worldweatherplus	fr-FR	jar:chrome/worldweatherplus.jar!/locale/fr-FR/worldweatherplus/
+locale	worldweatherplus	fy-NL	jar:chrome/worldweatherplus.jar!/locale/fy-NL/worldweatherplus/
 locale	worldweatherplus	hr-HR	jar:chrome/worldweatherplus.jar!/locale/hr-HR/worldweatherplus/
 locale	worldweatherplus	hu-HU	jar:chrome/worldweatherplus.jar!/locale/hu-HU/worldweatherplus/
 locale	worldweatherplus	it-IT	jar:chrome/worldweatherplus.jar!/locale/it-IT/worldweatherplus/
+locale	worldweatherplus	lt-LT	jar:chrome/worldweatherplus.jar!/locale/lt-LT/worldweatherplus/
 locale	worldweatherplus	nl-NL	jar:chrome/worldweatherplus.jar!/locale/nl-NL/worldweatherplus/
 locale	worldweatherplus	pl	jar:chrome/worldweatherplus.jar!/locale/pl/worldweatherplus/
 locale	worldweatherplus	pt-PT	jar:chrome/worldweatherplus.jar!/locale/pt-PT/worldweatherplus/
 locale	worldweatherplus	ru-RU	jar:chrome/worldweatherplus.jar!/locale/ru-RU/worldweatherplus/
 locale	worldweatherplus	sk	jar:chrome/worldweatherplus.jar!/locale/sk/worldweatherplus/
+locale	worldweatherplus	sr-YU	jar:chrome/worldweatherplus.jar!/locale/sr-YU/worldweatherplus/
+locale	worldweatherplus	tr-TR	jar:chrome/worldweatherplus.jar!/locale/tr-TR/worldweatherplus/
+locale	worldweatherplus	zh-CN	jar:chrome/worldweatherplus.jar!/locale/zh-CN/worldweatherplus/
+locale	worldweatherplus	zh-TW	jar:chrome/worldweatherplus.jar!/locale/zh-TW/worldweatherplus/

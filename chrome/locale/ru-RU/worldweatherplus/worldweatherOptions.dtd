@@ -10,11 +10,8 @@
 <!ENTITY about-box-label "О">
 <!ENTITY iconsize-box-label "Размер значков текущего состояния погоды">
 <!ENTITY iconsize-small-label "Маленький">
-<!ENTITY iconsize-small-label-accesskey   "">
 <!ENTITY iconsize-medium-label "Средний">
-<!ENTITY iconsize-medium-label-accesskey  "">
 <!ENTITY iconsize-large-label "Большой">
-<!ENTITY iconsize-large-label-accesskey   "">
 <!ENTITY textsize-box-label "Размер текста текущего состояния погоды">
 <!ENTITY textsize-small-label "Маленький">
 <!ENTITY textsize-medium-label "Средний">

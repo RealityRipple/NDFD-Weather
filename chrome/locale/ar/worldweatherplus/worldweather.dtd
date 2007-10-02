@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "تحديث">
+<!ENTITY menu-refresh-accesskey "ح">
+<!ENTITY menu-options-label "خيارات">
+<!ENTITY menu-options-accesskey "خ">
+<!ENTITY menu-featured-label "مقدّم في weather.com">
+<!ENTITY menu-featured-accesskey "م">
+<!ENTITY sidebar-header-label "الطقس">
+<!ENTITY tooltip-reportedat "ذكر في:">
+<!ENTITY tooltip-lastupdated "آخر تحديث:">
+<!ENTITY tooltip-sunrise "الشروق:">
+<!ENTITY tooltip-sunset "الغروب:">
+<!ENTITY tooltip-temperature "درجة الحرارة:">
+<!ENTITY tooltip-feelslike "الشعور الحقيقي:">
+<!ENTITY tooltip-wind "الرياح:">
+<!ENTITY tooltip-forecast "الطقس الحالي:">
+<!ENTITY tooltip-visibility "مستوى الرؤية:">
+<!ENTITY tooltip-pressure "الضغط الجوي:">
+<!ENTITY tooltip-dewpoint "نقطة الانخفاض:">
+<!ENTITY tooltip-uvindex "مستوى أشعة الشمس UV:">
+<!ENTITY tooltip-humidity "الرطوبة:">
+<!ENTITY loading "جاري التحميل...">
+<!ENTITY error-message "حصل خطأ أثناء جلب المعلومات.">
+<!ENTITY error-button "إعادة المحاولة؟">

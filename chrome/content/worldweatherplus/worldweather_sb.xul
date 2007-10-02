@@ -12,7 +12,7 @@
 
 	<vbox id="left-hand-content" style="overflow: auto;">
 		<stringbundleset>
-			<stringbundle id="strings" src="chrome://worldweatherplus/locale/worldweather.properties"/>
+			<stringbundle id="worldweatherplusstrings" src="chrome://worldweatherplus/locale/worldweather.properties"/>
 		</stringbundleset>
 
 		<splitter id="worldweather-mailpane-splitter" collapse="after" orient="vertical" persist="state"/>

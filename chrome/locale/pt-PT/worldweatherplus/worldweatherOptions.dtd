@@ -1,7 +1,7 @@
 <!ENTITY window-title "Opções do World Weather">
 <!ENTITY location-box-label "Localização">
 <!ENTITY zip-label "">
-<!ENTITY zip-description "O seu US Zipcode de 5 dígitos ou o código de localização Internacional de 8 dígitos <html:br/>(de weather.com):">
+<!ENTITY zip-description "O seu Código Postal US de 5 dígitos ou o código de localização Internacional de 8 dígitos <html:br/>(de weather.com):">
 <!ENTITY zip-accesskey "Z">
 <!ENTITY international-notice "(Suporte internacional congelado para desenvolvimento futuro)">
 <!ENTITY refresh-box-label "Actualizar">

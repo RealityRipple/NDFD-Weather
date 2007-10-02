@@ -1,0 +1,5 @@
+<!ENTITY window-title "世界天氣位置ID搜尋">
+<!ENTITY search-box-label "weather.com位置ID搜尋">
+<!ENTITY search-box-description "以&apos;城市,州份&apos;;&apos;城市,國家&apos;;&apos;城市&apos;或&apos;Zip Code&apos;輸入">
+<!ENTITY search-button-label "搜尋">
+<!ENTITY searchresult-box-label "選擇結果">

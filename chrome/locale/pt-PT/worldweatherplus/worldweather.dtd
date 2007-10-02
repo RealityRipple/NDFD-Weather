@@ -10,7 +10,7 @@
 <!ENTITY tooltip-sunrise "Nascer do Sol:">
 <!ENTITY tooltip-sunset "Pôr do sol:">
 <!ENTITY tooltip-temperature "Temperatura:">
-<!ENTITY tooltip-feelslike "Apetece como:">
+<!ENTITY tooltip-feelslike "Sensação térmica:">
 <!ENTITY tooltip-wind "Vento:">
 <!ENTITY tooltip-forecast "Condições Actuais:">
 <!ENTITY tooltip-visibility "Visibilidade:">

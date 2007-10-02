@@ -1,0 +1,5 @@
+<!ENTITY window-title "Paieška pagal pasaulinį orų vietovės kodą">
+<!ENTITY search-box-label "Paieška pagal weather.com vietovės kodą">
+<!ENTITY search-box-description "Įvesk &apos;miestas,valstija&apos;; &apos;miestas, valstybė&apos;; &apos;miestas&apos; arba &apos;JAV pašto kodas&apos;">
+<!ENTITY search-button-label "Ieškoti">
+<!ENTITY searchresult-box-label "Pasirink rezultatą">

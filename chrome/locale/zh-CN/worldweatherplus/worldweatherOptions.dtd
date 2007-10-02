@@ -1,0 +1,28 @@
+<!ENTITY window-title "世界天气选项">
+<!ENTITY location-box-label "位置">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "您的5位US邮政编码或8位国际定位代码<html:br/>(取自 weather.com)：">
+<!ENTITY zip-accesskey "Z">
+<!ENTITY international-notice "(国际支持已经安排在将来的开发中。)">
+<!ENTITY refresh-box-label "刷新">
+<!ENTITY refresh-no-label "无法自动刷新">
+<!ENTITY refresh-yes-label "每 __ 分钟刷新一次">
+<!ENTITY about-box-label "关于">
+<!ENTITY iconsize-box-label "当前状况图标大小">
+<!ENTITY iconsize-small-label "小">
+<!ENTITY iconsize-medium-label "中">
+<!ENTITY iconsize-large-label "大">
+<!ENTITY textsize-box-label "当前状况文本大小">
+<!ENTITY textsize-small-label "小">
+<!ENTITY textsize-medium-label "中">
+<!ENTITY textsize-large-label "大">
+<!ENTITY unittype-box-label "测量单位">
+<!ENTITY unittype-standard-label "标准">
+<!ENTITY unittype-metric-label "公制">
+<!ENTITY tabname-location-label "位置">
+<!ENTITY tabname-currentconditions-label "当前状况">
+<!ENTITY tabname-about-label "关于">
+<!ENTITY created-by "扩展创始人：">
+<!ENTITY updated-by "扩展重新设计和维护者：">
+<!ENTITY support "提供支持或提交bug，请访问">
+<!ENTITY thanks-before "天气数据提供者：">

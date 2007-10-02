@@ -1,0 +1,5 @@
+<!ENTITY window-title "世界天气位置 ID 搜索">
+<!ENTITY search-box-label "weather.com 位置 ID 搜索">
+<!ENTITY search-box-description "输入‘城市，州’；‘城市，国家’；‘城市’；或者‘邮政编码’">
+<!ENTITY search-button-label "搜索">
+<!ENTITY searchresult-box-label "选择结果">

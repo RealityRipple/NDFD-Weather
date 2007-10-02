@@ -1,0 +1,28 @@
+<!ENTITY window-title "خيارات طقس العالم">
+<!ENTITY location-box-label "المكان">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "رمز مدينتك <html:br/>(from weather.com):">
+<!ENTITY zip-accesskey "">
+<!ENTITY international-notice "(الدعم الدولي سيتم تطويره مستقبلاً.)">
+<!ENTITY refresh-box-label "تحديث">
+<!ENTITY refresh-no-label "لا تحدّث تلقائياً">
+<!ENTITY refresh-yes-label "حدّث كل __ دقيقة">
+<!ENTITY about-box-label "حول">
+<!ENTITY iconsize-box-label "حجم إيقونة حالة الطقس">
+<!ENTITY iconsize-small-label "صغير">
+<!ENTITY iconsize-medium-label "وسط">
+<!ENTITY iconsize-large-label "كبير">
+<!ENTITY textsize-box-label "حجم النص للطقس الحالي">
+<!ENTITY textsize-small-label "صغير">
+<!ENTITY textsize-medium-label "وسط">
+<!ENTITY textsize-large-label "كبير">
+<!ENTITY unittype-box-label "وحدة القياس">
+<!ENTITY unittype-standard-label "فهرنهايت">
+<!ENTITY unittype-metric-label "درجة مئوية">
+<!ENTITY tabname-location-label "المكان">
+<!ENTITY tabname-currentconditions-label "الطقس الحالي">
+<!ENTITY tabname-about-label "حول">
+<!ENTITY created-by "برمج هذا الملحق">
+<!ENTITY updated-by "وعريه عبدالعزيز العريج. وأعاد تصميمه وطوره">
+<!ENTITY support "للدعم وعند وجود أي مشاكل، تفضل بزيارة">
+<!ENTITY thanks-before "معلومات الطقس عن طريق">

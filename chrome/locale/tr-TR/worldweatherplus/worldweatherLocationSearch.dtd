@@ -1,0 +1,5 @@
+<!ENTITY window-title "Dünya Hava Durumu Bölge No Arama">
+<!ENTITY search-box-label "Weather.com Bölge No Arama">
+<!ENTITY search-box-description "&apos;Şehir, Ülke&apos;; &apos;Şehir, Eyalet&apos;;&apos;Şehir&apos; veya &apos;Posta Kodu&apos; şekline giriş yapın">
+<!ENTITY search-button-label "Ara">
+<!ENTITY searchresult-box-label "Arama Sonuçları">

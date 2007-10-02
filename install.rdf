@@ -6,7 +6,7 @@
 	
 		<em:id>{90bcd2b0-08f1-4db8-a136-8263c3f89cc8}</em:id>
 		<em:name>World Weather+</em:name>
-		<em:version>2.1</em:version>
+		<em:version>2.2</em:version>
 		<em:description>Display local weather information from around the world.</em:description>
 		<em:creator>Mel Reyes</em:creator>
 		<em:contributor>Original code by Luke Fessler</em:contributor>
@@ -21,16 +21,24 @@
       <Description about="urn:mozilla:extension:file:worldweatherplus.jar">
         <em:package>content/worldweatherplus/</em:package>
         <em:locale>locale/en-US/worldweatherplus/</em:locale>
+        <em:locale>locale/ar/worldweatherplus/</em:locale>
+        <em:locale>locale/de-DE/worldweatherplus/</em:locale>
         <em:locale>locale/fi-FI/worldweatherplus/</em:locale>
         <em:locale>locale/fr-FR/worldweatherplus/</em:locale>
+        <em:locale>locale/fy-NL/worldweatherplus/</em:locale>
         <em:locale>locale/hr-HR/worldweatherplus/</em:locale>
         <em:locale>locale/hu-HU/worldweatherplus/</em:locale>
         <em:locale>locale/it-IT/worldweatherplus/</em:locale>
+        <em:locale>locale/lt-LT/worldweatherplus/</em:locale>
         <em:locale>locale/nl-NL/worldweatherplus/</em:locale>
         <em:locale>locale/pl/worldweatherplus/</em:locale>
         <em:locale>locale/pt-PT/worldweatherplus/</em:locale>
         <em:locale>locale/ru-RU/worldweatherplus/</em:locale>
         <em:locale>locale/sk/worldweatherplus/</em:locale>
+        <em:locale>locale/sr-YU/worldweatherplus/</em:locale>
+        <em:locale>locale/tr-TR/worldweatherplus/</em:locale>
+        <em:locale>locale/zh-CN/worldweatherplus/</em:locale>
+        <em:locale>locale/zh-TW/worldweatherplus/</em:locale>
         <em:skin>skin/classic/worldweatherplus/</em:skin>
       </Description>
     </em:file>
@@ -43,22 +51,13 @@
       </Description>
     </em:targetApplication>
 	
-    <em:targetApplication> <!-- eMusic DLM -->
-      <Description>
-        <em:id>dlm@emusic.com</em:id>
-        <em:minVersion>4.0a1</em:minVersion>
-        <em:maxVersion>4.0.0.*</em:maxVersion>
-      </Description>
-    </em:targetApplication>
- 
     <em:targetApplication> <!-- Sunbird -->
       <Description>
         <em:id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</em:id>
         <em:minVersion>0.3.1</em:minVersion>
-        <em:maxVersion>0.6a1</em:maxVersion>
+        <em:maxVersion>0.7pre</em:maxVersion>
       </Description>
     </em:targetApplication>
-
 
 	</Description>
 

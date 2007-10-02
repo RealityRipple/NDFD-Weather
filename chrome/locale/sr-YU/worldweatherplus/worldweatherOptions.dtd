@@ -1,0 +1,28 @@
+<!ENTITY window-title "Svetsko vreme, Opcije">
+<!ENTITY location-box-label "Lokacija">
+<!ENTITY zip-label "Poštanski kod">
+<!ENTITY zip-description "">
+<!ENTITY zip-accesskey "">
+<!ENTITY international-notice "">
+<!ENTITY refresh-box-label "Osveži">
+<!ENTITY refresh-no-label "NIkad ne osvežavaj automatski">
+<!ENTITY refresh-yes-label "Osveži svakih __minuta">
+<!ENTITY about-box-label "O">
+<!ENTITY iconsize-box-label "Veličina ikone za trenutno vreme">
+<!ENTITY iconsize-small-label "Mala">
+<!ENTITY iconsize-medium-label "Srednja">
+<!ENTITY iconsize-large-label "Velika">
+<!ENTITY textsize-box-label "Veličina teksta za trenutno vreme">
+<!ENTITY textsize-small-label "Sitan">
+<!ENTITY textsize-medium-label "Srednji">
+<!ENTITY textsize-large-label "Krupan">
+<!ENTITY unittype-box-label "Merne jedinice">
+<!ENTITY unittype-standard-label "Standardne">
+<!ENTITY unittype-metric-label "Metričke(SI)">
+<!ENTITY tabname-location-label "LOkacija">
+<!ENTITY tabname-currentconditions-label "Trenutni vremenski uslovi">
+<!ENTITY tabname-about-label "O">
+<!ENTITY created-by "Ovaj dodatak je originalno delo">
+<!ENTITY updated-by "Ovaj dodatak je redizajnirao i održava ga">
+<!ENTITY support "Za podršku, ili da prijavite grešku, posetite">
+<!ENTITY thanks-before "Vremenske podatke je ustupio">

@@ -1,0 +1,23 @@
+<!ENTITY menu-refresh-label "Fernije">
+<!ENTITY menu-refresh-accesskey "F">
+<!ENTITY menu-options-label "Opsjes">
+<!ENTITY menu-options-accesskey "O">
+<!ENTITY menu-featured-label "Toant op weather.com">
+<!ENTITY menu-featured-accesskey "t">
+<!ENTITY sidebar-header-label "Waar">
+<!ENTITY tooltip-reportedat "Rapportearre om:">
+<!ENTITY tooltip-lastupdated "Lêst bywurke:">
+<!ENTITY tooltip-sunrise "Sinneopgong:">
+<!ENTITY tooltip-sunset "Sinneûndergong:">
+<!ENTITY tooltip-temperature "Temperatuur:">
+<!ENTITY tooltip-feelslike "Gefoelstemperatuur:">
+<!ENTITY tooltip-wind "Wyn:">
+<!ENTITY tooltip-forecast "Aktuele omstandigheden:">
+<!ENTITY tooltip-visibility "Sicht:">
+<!ENTITY tooltip-pressure "Luchtdruk:">
+<!ENTITY tooltip-dewpoint "Dauwpunt:">
+<!ENTITY tooltip-uvindex "UV yndeks:">
+<!ENTITY tooltip-humidity "Luchtfochtigheid:">
+<!ENTITY loading "Lade...">
+<!ENTITY error-message "Flater by opheljen waargegevens.">
+<!ENTITY error-button "Op &apos;e nij probearje?">

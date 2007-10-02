@@ -155,7 +155,7 @@ var weatherWatcher = {
     weatherWatcher.refreshPrefs();
 
   	// gets reference to localized strings
-  	var stringbundle = document.getElementById("strings");
+  	var stringbundle = document.getElementById("worldweatherplusstrings");
   
   	// if the weather server is down, display the error message (the string "Error" doesn't really mean anything)
   	if (weatherWatcher.current_worldweather == "Error") {

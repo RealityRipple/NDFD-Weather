@@ -1,0 +1,28 @@
+<!ENTITY window-title "World Weather - Einstellungen">
+<!ENTITY location-box-label "Location">
+<!ENTITY zip-label "">
+<!ENTITY zip-description "Your 5 digit US Zipcode or 8 digit International Location Code <html:br/>(from weather.com):">
+<!ENTITY zip-accesskey "Z">
+<!ENTITY international-notice "(International support is slated for future development.)">
+<!ENTITY refresh-box-label "Aktualisierung">
+<!ENTITY refresh-no-label "Nicht automatisch aktualisieren">
+<!ENTITY refresh-yes-label "Alle ... Minuten aktualisieren">
+<!ENTITY about-box-label "Über">
+<!ENTITY iconsize-box-label "Current Conditions Icon Size">
+<!ENTITY iconsize-small-label "Klein">
+<!ENTITY iconsize-medium-label "Mittel">
+<!ENTITY iconsize-large-label "Groß">
+<!ENTITY textsize-box-label "Current Conditions Text Size">
+<!ENTITY textsize-small-label "Klein">
+<!ENTITY textsize-medium-label "Mittel">
+<!ENTITY textsize-large-label "Groß">
+<!ENTITY unittype-box-label "Maßeinheiten">
+<!ENTITY unittype-standard-label "Standard">
+<!ENTITY unittype-metric-label "Metrisch">
+<!ENTITY tabname-location-label "Location">
+<!ENTITY tabname-currentconditions-label "Current Conditions">
+<!ENTITY tabname-about-label "Über">
+<!ENTITY created-by "This exension was originally created by">
+<!ENTITY updated-by "This exension was re-designed and is maintained by">
+<!ENTITY support "For support or to file a bug, visit">
+<!ENTITY thanks-before "Weather data provided by">

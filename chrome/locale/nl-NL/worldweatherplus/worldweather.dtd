@@ -12,11 +12,11 @@
 <!ENTITY tooltip-temperature "Temperatuur:">
 <!ENTITY tooltip-feelslike "Gevoelstemperatuur:">
 <!ENTITY tooltip-wind "Wind:">
-<!ENTITY tooltip-forecast "Huidge omstandigheden:">
+<!ENTITY tooltip-forecast "Huidige omstandigheden:">
 <!ENTITY tooltip-visibility "Zicht:">
 <!ENTITY tooltip-pressure "Luchtdruk:">
 <!ENTITY tooltip-dewpoint "Dauwpunt:">
-<!ENTITY tooltip-uvindex "UV index:">
+<!ENTITY tooltip-uvindex "UV-index:">
 <!ENTITY tooltip-humidity "Luchtvochtigheid:">
 <!ENTITY loading "Laden...">
 <!ENTITY error-message "Fout bij ophalen weergegevens.">

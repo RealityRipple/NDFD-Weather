@@ -4,8 +4,8 @@
 <!ENTITY zip-description "Uw 5-karakters US Zipcode of 8-karakters internationale lokatiecode <html:/>(van weather.com):">
 <!ENTITY zip-accesskey "Z">
 <!ENTITY international-notice "(internationale ondersteuning is ingebouwd voor toekomstige ontwikkeling)">
-<!ENTITY refresh-box-label "Verversen">
-<!ENTITY refresh-no-label "Nooit automatisch verversen">
+<!ENTITY refresh-box-label "Vernieuwen">
+<!ENTITY refresh-no-label "Nooit automatisch vernieuwen">
 <!ENTITY refresh-yes-label "Elke __ minuten verversen">
 <!ENTITY about-box-label "Over">
 <!ENTITY iconsize-box-label "Pictogramgrootte huidige omstandigheden">
@@ -19,8 +19,8 @@
 <!ENTITY unittype-box-label "Maateenheid">
 <!ENTITY unittype-standard-label "Standaard">
 <!ENTITY unittype-metric-label "Metrisch">
-<!ENTITY tabname-location-label "Lokatie">
-<!ENTITY tabname-currentconditions-label "Huidge omstandigheden">
+<!ENTITY tabname-location-label "Locatie">
+<!ENTITY tabname-currentconditions-label "Huidige omstandigheden">
 <!ENTITY tabname-about-label "Over">
 <!ENTITY created-by "Deze extensie is oorspronkelijk gebouwd door">
 <!ENTITY updated-by "Deze extensie is opnieuw ontworpen en wordt onderhouden door">

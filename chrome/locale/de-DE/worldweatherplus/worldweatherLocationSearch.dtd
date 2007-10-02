@@ -1,0 +1,5 @@
+<!ENTITY window-title "World Weather Location ID Search">
+<!ENTITY search-box-label "weather.com Location ID Search">
+<!ENTITY search-box-description "Enter as &apos;City, State&apos;; &apos;City, Country&apos;; &apos;City&apos;; or &apos;Zip Code&apos;">
+<!ENTITY search-button-label "Suchen">
+<!ENTITY searchresult-box-label "Ergebnis auswählen">
