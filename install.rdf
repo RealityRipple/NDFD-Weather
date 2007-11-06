@@ -6,7 +6,7 @@
 	
 		<em:id>{90bcd2b0-08f1-4db8-a136-8263c3f89cc8}</em:id>
 		<em:name>World Weather+</em:name>
-		<em:version>2.2</em:version>
+		<em:version>2.2.1</em:version>
 		<em:description>Display local weather information from around the world.</em:description>
 		<em:creator>Mel Reyes</em:creator>
 		<em:contributor>Original code by Luke Fessler</em:contributor>
@@ -55,7 +55,7 @@
       <Description>
         <em:id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</em:id>
         <em:minVersion>0.3.1</em:minVersion>
-        <em:maxVersion>0.7pre</em:maxVersion>
+        <em:maxVersion>0.8pre</em:maxVersion>
       </Description>
     </em:targetApplication>
 
