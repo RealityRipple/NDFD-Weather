@@ -21,3 +21,4 @@
 <!ENTITY loading "Загрузка...">
 <!ENTITY error-message "Ошибка при получении данных о погоде.">
 <!ENTITY error-button "Повторить?">
+<!ENTITY sidebar-forecast "Forecast">

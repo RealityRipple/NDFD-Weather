@@ -21,3 +21,4 @@
 <!ENTITY loading "Chargement...">
 <!ENTITY error-message "Erreur dans la récupération des données météo.">
 <!ENTITY error-button "Réessayer ?">
+<!ENTITY sidebar-forecast "Forecast">

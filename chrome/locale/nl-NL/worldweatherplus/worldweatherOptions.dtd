@@ -1,7 +1,7 @@
 <!ENTITY window-title "World Weather opties">
-<!ENTITY location-box-label "Lokatie">
+<!ENTITY location-box-label "Locatie">
 <!ENTITY zip-label "">
-<!ENTITY zip-description "Uw 5-karakters US Zipcode of 8-karakters internationale lokatiecode <html:/>(van weather.com):">
+<!ENTITY zip-description "Uw 5-karakters US Zipcode of 8-karakters internationale lokatiecode <html:br/>(van weather.com):">
 <!ENTITY zip-accesskey "Z">
 <!ENTITY international-notice "(internationale ondersteuning is ingebouwd voor toekomstige ontwikkeling)">
 <!ENTITY refresh-box-label "Vernieuwen">

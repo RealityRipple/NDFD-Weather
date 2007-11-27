@@ -21,3 +21,4 @@
 <!ENTITY loading "Caricamento...">
 <!ENTITY error-message "Errore nella ricezione dati meteo">
 <!ENTITY error-button "Riprovare?">
+<!ENTITY sidebar-forecast "Forecast">

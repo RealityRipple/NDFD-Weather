@@ -21,3 +21,4 @@
 <!ENTITY loading "Laden...">
 <!ENTITY error-message "Fout bij ophalen weergegevens.">
 <!ENTITY error-button "Opnieuw proberen?">
+<!ENTITY sidebar-forecast "Forecast">

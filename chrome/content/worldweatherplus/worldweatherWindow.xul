@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://worldweatherplus/skin/worldweather.css" type="text/css"?> 
+
+<!DOCTYPE overlay [
+<!ENTITY % worldweatherDTD SYSTEM "chrome://worldweatherplus/locale/worldweather.dtd"> %worldweatherDTD;
+]>
+
+<overlay id="worldweatherWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="worldweather.js"/>
+
+	<stringbundleset>
+		<stringbundle id="worldweatherplusstrings" src="chrome://worldweatherplus/locale/worldweather.properties"/>
+	</stringbundleset>
+
+	<vbox id="worldweatherContainer" context="worldweatherMenu"
+			onmouseover="setTimeout(weatherWatcher.fadeOpen, weatherWatcher.gSlideTime);"
+			onmouseout="setTimeout(weatherWatcher.fadeClose, weatherWatcher.gSlideTime);" >
+
+		<popupset>
+			<popup id="worldweatherMenu">
+				<menuitem label="&menu-refresh-label;" accesskey="&menu-refresh-accesskey;" oncommand="weatherWatcher.initiateWorldWeather(); return false;"/>
+				<menuitem label="&menu-options-label;" accesskey="&menu-options-accesskey;" oncommand="window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome,dependent,modal');"/>
+				<menuitem label="&menu-featured-label;" accesskey="&menu-featured-accesskey;" oncommand="window.openDialog('chrome://worldweatherplus/content/worldweatherFeatured.xul', 'worldweatherFeatured', 'chrome,dependent,modal',link_data);"/>
+			</popup>
+		</popupset>
+	
+		<tooltip id="worldweatherMoreData" orient="vertical" noautohide="true">
+			<grid id="tooltipGrid">
+				<columns>
+					<column/>
+					<column flex="1"/>
+				</columns>
+				<rows>
+					<row>
+						<description class="tooltip-label" value="&tooltip-forecast;" />
+						<description id="worldweatherMoreData-Forecast" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-temperature;" />
+						<description id="worldweatherMoreData-Temperature" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-feelslike;" />
+						<description id="worldweatherMoreData-FeelsLike" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-wind;" />
+						<description id="worldweatherMoreData-Wind" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-visibility;" />
+						<description id="worldweatherMoreData-Visibility" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-pressure;" />
+						<description id="worldweatherMoreData-Pressure" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-dewpoint;" />
+						<description id="worldweatherMoreData-DewPoint" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-uvindex;" />
+						<description id="worldweatherMoreData-UVIndex" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-humidity;" />
+						<description id="worldweatherMoreData-Humidity" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-sunrise;" />
+						<description id="worldweatherMoreData-Sunrise" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-sunset;" />
+						<description id="worldweatherMoreData-Sunset" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-reportedat;" />
+						<description id="worldweatherMoreData-ReportedAt" />
+					</row>
+					<row>
+						<description class="tooltip-label" value="&tooltip-lastupdated;" />
+						<description id="worldweatherMoreData-LastUpdated" />
+					</row>
+				</rows>
+			</grid>
+	
+			<description hidden="true" id="worldweatherMoreData-Location" />
+			<description hidden="true" id="worldweatherMoreData-IconIndex" />
+			<description hidden="true" id="worldweatherMoreData-PassXML" />
+		</tooltip>
+
+		<sidebarheader id="worldweatherPaneHeader" class="genericBar" align="center" flex="1"
+			onmouseover="setTimeout(weatherWatcher.fadeOpen, weatherWatcher.gSlideTime);"
+			onmouseout="setTimeout(weatherWatcher.fadeClose, weatherWatcher.gSlideTime);" >
+			<description id="worldWeatherSidebarHeader"
+				onclick="document.getElementById('worldweatherDeck').selectedIndex = '0'">&sidebar-header-label;</description>
+			<spacer flex="1" />
+			<hbox id="worldweatherFadeBox" style="opacity: 0" flex="1">
+			<label id="worldweatherPaneForecast" value="&sidebar-forecast;" class="worldweatherSidebarURL" 
+				onclick="document.getElementById('worldweatherDeck').selectedIndex = '3'" />
+			<spacer flex="1" />
+			<label id="worldweatherSidebarOptions" value="&menu-options-label;" class="worldweatherSidebarURL"
+				onclick="window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome,dependent,modal');" />
+			</hbox>
+		</sidebarheader>
+
+		<deck id="worldweatherDeck" flex="1" selectedIndex="1">
+			<vbox id="worldweatherInfo" flex="1"  pack="center" tooltip="worldweatherMoreData">
+				<hbox id="displayWorldWeather-IconBox" pack="center">
+					<image id="displayWorldWeather-Icon"/>
+				</hbox>
+				<description crop="end" id="displayWorldWeather-Temperature" />
+				<description crop="end" id="displayWorldWeather-Location" />
+			</vbox>
+
+			<vbox id="worldweatherLoading" flex="1" pack="center">
+				<description crop="end" value="&loading;"/>
+				<progressmeter id="worldweatherProgress" mode="undetermined"  style="min-width: 0px;"/>
+			</vbox>
+
+			<vbox id="worldweatherError" flex="1" pack="center">
+				<hbox id="displayWorldWeather-IconBoxError" pack="center">
+					<image id="displayWorldWeather-IconError"/>
+				</hbox>
+				<description crop="end">&error-message;</description>
+				<button label="&error-button;" oncommand="weatherWatcher.initiateWorldWeather(); return false;"/>
+			</vbox>
+
+			<vbox id="worldweatherForecast" flex="1" pack="center">
+
+				<grid flex="1" pack="center">
+					<columns>
+						<column flex="1"/>
+						<column flex="1"/>
+						<column flex="1"/>
+					</columns>
+	
+					<rows>
+						<row>
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox1" pack="center">
+									<image id="displayWorldWeather-ForecastIcon1day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon1night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature1"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation1"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox2" pack="center">
+									<image id="displayWorldWeather-ForecastIcon2day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon2night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature2"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation2"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox3" pack="center">
+									<image id="displayWorldWeather-ForecastIcon3day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon3night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature3"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation3"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+						</row>
+						<row>
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox4" pack="center">
+									<image id="displayWorldWeather-ForecastIcon4day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon4night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature4"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation4"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox5" pack="center">
+									<image id="displayWorldWeather-ForecastIcon5day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon5night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature5"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation5"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox6" pack="center">
+									<image id="displayWorldWeather-ForecastIcon6day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon6night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature6"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation6"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+						</row>
+						<row>
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox7" pack="center">
+									<image id="displayWorldWeather-ForecastIcon7day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon7night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature7"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation7"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox8" pack="center">
+									<image id="displayWorldWeather-ForecastIcon8day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon8night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature8"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation8"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+
+							<vbox>
+								<hbox id="displayWorldWeather-ForecastIconBox9" pack="center">
+									<image id="displayWorldWeather-ForecastIcon9day"
+									class="displayWorldWeather-Icon-small" />
+									<image id="displayWorldWeather-ForecastIcon9night"
+									class="displayWorldWeather-Icon-small" />
+								</hbox>
+								<description crop="end" id="displayWorldWeather-ForecastTemperature9"
+									class="displayWorldWeather-Temperature-small" />
+								<description crop="end" id="displayWorldWeather-ForecastLocation9"
+									class="displayWorldWeather-Temperature-small" />
+							</vbox>
+						</row>
+					</rows>
+				</grid>
+			</vbox>
+
+		</deck>
+	</vbox>
+
+	<statusbar id="status-bar">
+		<statusbarpanel id="worldweatherStatusPanel" inserbefore="totalMessageCount">
+			<hbox style="background: white;" context="worldweatherMenu" tooltip="worldweatherMoreData">
+				<hbox id="displayWorldWeather-ForecastIconBar1" pack="center">
+					<image id="displayWorldWeather-ForecastTinyIcon1day" />
+					<image id="displayWorldWeather-ForecastTinyIcon1night" />
+				</hbox>
+				<description crop="end" id="displayWorldWeather-ForecastTinyTemperature1"
+					class="displayWorldWeather-Temperature-small" />
+			</hbox>
+		</statusbarpanel>
+	</statusbar>
+
+</overlay>

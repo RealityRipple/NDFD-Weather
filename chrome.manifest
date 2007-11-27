@@ -3,6 +3,9 @@ content	worldweatherplus	jar:chrome/worldweatherplus.jar!/content/worldweatherpl
 overlay	chrome://messenger/content/messenger.xul	chrome://worldweatherplus/content/worldweather.xul
 overlay	chrome://calendar/content/calendar.xul	chrome://worldweatherplus/content/worldweather_sb.xul
 
+overlay	chrome://worldweatherplus/content/worldweather.xul	chrome://worldweatherplus/content/worldweatherWindow.xul
+overlay	chrome://worldweatherplus/content/worldweather_sb.xul	chrome://worldweatherplus/content/worldweatherWindow.xul
+
 skin	worldweatherplus	classic/1.0	jar:chrome/worldweatherplus.jar!/skin/classic/worldweatherplus/
 
 style	chrome://messenger/content/messenger.xul	chrome://worldweatherplus/skin/worldweather.css

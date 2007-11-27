@@ -21,3 +21,4 @@
 <!ENTITY loading "Yükleniyor...">
 <!ENTITY error-message "Hava durumu bilgisi alınırken hata oluştu.">
 <!ENTITY error-button "Tekrar dene?">
+<!ENTITY sidebar-forecast "Forecast">

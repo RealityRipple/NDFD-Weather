@@ -21,3 +21,4 @@
 <!ENTITY loading "Betöltés...">
 <!ENTITY error-message "Hiba az időjárás adatainak visszakeresése közben.">
 <!ENTITY error-button "Újra?">
+<!ENTITY sidebar-forecast "Forecast">

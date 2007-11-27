@@ -21,3 +21,4 @@
 <!ENTITY loading "Učitavam...">
 <!ENTITY error-message "Greška u prijemu vremenskih podataka.">
 <!ENTITY error-button "Pokušaj Ponovo?">
+<!ENTITY sidebar-forecast "Forecast">

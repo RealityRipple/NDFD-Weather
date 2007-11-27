@@ -21,3 +21,4 @@
 <!ENTITY loading "Loading...">
 <!ENTITY error-message "Error retrieving weather data.">
 <!ENTITY error-button "Retry?">
+<!ENTITY sidebar-forecast "Forecast">

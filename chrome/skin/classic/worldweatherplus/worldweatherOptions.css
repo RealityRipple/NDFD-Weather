@@ -1,4 +1,5 @@
 a {
-color: blue;
-text-decoration: underline;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }

@@ -66,3 +66,9 @@
   width: 32px;
   height: 32px;
 }
+
+.worldweatherSidebarURL {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

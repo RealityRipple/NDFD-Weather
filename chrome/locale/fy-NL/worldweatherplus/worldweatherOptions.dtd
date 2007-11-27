@@ -1,6 +1,6 @@
 <!ENTITY window-title "World Weather opsjes">
 <!ENTITY location-box-label "Lokaasje">
-<!ENTITY zip-label "">
+<!ENTITY zip-label "Postkoade">
 <!ENTITY zip-description "Jo 5-karakters US Postkoade of 8-karakters ynternasjonale lokaasjekoade <html:/>(fan weather.com):">
 <!ENTITY zip-accesskey "P">
 <!ENTITY international-notice "(ynternasjonale stipe is ynboud foar takomstige ûntwikling)">

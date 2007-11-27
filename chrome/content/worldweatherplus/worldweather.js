@@ -2,15 +2,16 @@ var link_data
 
 var weatherWatcher = {
   myTimeout: null,
+  myFadeTimeout: null,
   zipcode: null,
-	refresh: null,
-	interval: 0,
-	iconsize: null,
-	textsize: null,
-	unittype: null,
-	current_worldweather: null,
-	current_links: null,
-	prefBranch_changed: null,
+  refresh: null,
+  interval: 0,
+  iconsize: null,
+  textsize: null,
+  unittype: null,
+  current_worldweather: null,
+  current_links: null,
+  prefBranch_changed: null,
   worldweather_prefs: Components.classes["@mozilla.org/preferences-service;1"]
                                .getService(Components.interfaces.nsIPrefService)
                                .getBranch("worldweather."),
@@ -61,10 +62,12 @@ var weatherWatcher = {
   	netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
   	worldweatherRequest.overrideMimeType("text/xml");
   	worldweatherRequest.open("GET", "http://xoap.weather.com/weather/local/" + this.zipcode + 
-                                    "?cc=*&dayf=1&unit=" + this.unittype + 
+                                    "?cc=*&dayf=9&unit=" + this.unittype + 
                                     "&link=xoap&prod=xoap&par=1030266584&key=b1e4d322e4fc7c9d", true);
   	worldweatherRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-  
+  	worldweatherRequest.setRequestHeader("Pragma", "no-cache");
+  	worldweatherRequest.setRequestHeader("Cache-Control", "no-cache");
+
   	// Code to execute when you hear back from the web service.
   	worldweatherRequest.onload = function parse() {
   		
@@ -81,7 +84,16 @@ var weatherWatcher = {
   			var passTagLOC    = passXML.getElementsByTagName("loc")[0]
   			var passTagCC     = passXML.getElementsByTagName("cc")[0]
   			var passTagHEAD   = passXML.getElementsByTagName("head")[0]
-  			var passTagDAYF   = passXML.getElementsByTagName("dayf")[0]
+
+  			var passTagDAYF1   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[0];
+  			var passTagDAYF2   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[1];
+  			var passTagDAYF3   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[2];
+  			var passTagDAYF4   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[3];
+  			var passTagDAYF5   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[4];
+  			var passTagDAYF6   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[5];
+  			var passTagDAYF7   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[6];
+  			var passTagDAYF8   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[7];
+  			var passTagDAYF9   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[8];
   			
   			return_data["Location"]      = passTagLOC.getElementsByTagName("dnam")[0].firstChild.nodeValue;
   			return_data["IconIndex"]     = passTagCC.getElementsByTagName("icon")[0].firstChild.nodeValue;
@@ -95,9 +107,20 @@ var weatherWatcher = {
   			return_data["Humidity"]      = passTagCC.getElementsByTagName("hmid")[0].firstChild.nodeValue + "%";
   			return_data["ReportedAt"]    = passTagCC.getElementsByTagName("obst")[0].firstChild.nodeValue;
   			return_data["LastUpdated"]   = passTagCC.getElementsByTagName("lsup")[0].firstChild.nodeValue;
-  			return_data["Sunrise"]       = passTagDAYF.getElementsByTagName("day")[0].getElementsByTagName("sunr")[0].firstChild.nodeValue;
-  			return_data["Sunset"]        = passTagDAYF.getElementsByTagName("day")[0].getElementsByTagName("suns")[0].firstChild.nodeValue;
+
+  			return_data["Sunrise"]       = passTagDAYF1.getElementsByTagName("sunr")[0].firstChild.nodeValue;
+  			return_data["Sunset"]        = passTagDAYF1.getElementsByTagName("suns")[0].firstChild.nodeValue;
   			
+        return_data["forecast1"]     = passTagDAYF1;
+        return_data["forecast2"]     = passTagDAYF2;
+        return_data["forecast3"]     = passTagDAYF3;
+        return_data["forecast4"]     = passTagDAYF4;
+        return_data["forecast5"]     = passTagDAYF5;
+        return_data["forecast6"]     = passTagDAYF6;
+        return_data["forecast7"]     = passTagDAYF7;
+        return_data["forecast8"]     = passTagDAYF8;
+        return_data["forecast9"]     = passTagDAYF9;
+        
   			if(passTagCC.getElementsByTagName("wind")[0].getElementsByTagName("s")[0].firstChild.nodeValue == "calm") {
   				return_data["Wind"] =  "Calm"
   			} else {
@@ -195,7 +218,44 @@ var weatherWatcher = {
           .setAttribute("value", weatherWatcher.current_worldweather[value]);
   		}
   	}
-  
+
+    for (var i = 1; i <= 9; ++i) {
+      var forecastIconDay = weatherWatcher.current_worldweather["forecast" + i]
+        .getElementsByTagName("part")[0].getElementsByTagName("icon")[0].firstChild.nodeValue;
+      var forecastIconNight = weatherWatcher.current_worldweather["forecast" + i]
+        .getElementsByTagName("part")[1].getElementsByTagName("icon")[0].firstChild.nodeValue;
+
+      var forecastDay = weatherWatcher.current_worldweather["forecast" + i]
+        .getAttribute("t");
+
+      var forecastHi = weatherWatcher.current_worldweather["forecast" + i]
+        .getElementsByTagName("hi")[0].firstChild.nodeValue;
+      var forecastLow = weatherWatcher.current_worldweather["forecast" + i]
+        .getElementsByTagName("low")[0].firstChild.nodeValue;
+
+      if (i == 1) {
+        document.getElementById("displayWorldWeather-ForecastTinyIcon" + i + "day")
+          .setAttribute("src", "chrome://worldweatherplus/skin/icons/tiny/" + forecastIconDay + ".png");
+        document.getElementById("displayWorldWeather-ForecastTinyIcon" + i + "night")
+          .setAttribute("src", "chrome://worldweatherplus/skin/icons/tiny/" + forecastIconNight + ".png");
+
+        document.getElementById("displayWorldWeather-ForecastTinyTemperature" + i)
+          .setAttribute("value", forecastHi + " / " + forecastLow);
+      }
+
+      document.getElementById("displayWorldWeather-ForecastIcon" + i + "day")
+        .setAttribute("src", "chrome://worldweatherplus/skin/icons/large/" + forecastIconDay + ".png");
+      document.getElementById("displayWorldWeather-ForecastIcon" + i + "night")
+        .setAttribute("src", "chrome://worldweatherplus/skin/icons/large/" + forecastIconNight + ".png");
+
+      document.getElementById("displayWorldWeather-ForecastTemperature" + i)
+        .setAttribute("value", forecastHi + " / " + forecastLow);
+      
+      document.getElementById("displayWorldWeather-ForecastLocation" + i)
+        .setAttribute("value", forecastDay);
+
+    }
+
   	// Change the display from the loading message to the main info message
   	document.getElementById('worldweatherDeck').selectedIndex = "0";
   
@@ -221,6 +281,52 @@ var weatherWatcher = {
 		this.iconsize = weatherWatcher.worldweather_prefs.getCharPref("iconsize");
 		this.textsize = weatherWatcher.worldweather_prefs.getCharPref("textsize");
 		this.unittype = weatherWatcher.worldweather_prefs.getCharPref("unittype");
+  },
+  
+  gOpenTime: 3000, // total time the alert should stay up once we are done animating.
+  gFadeIncrement: .05,
+  gSlideTime: 50,
+
+  fadeOpen: function() {
+    var alertContainer = document.getElementById("worldweatherFadeBox");
+
+    var worldWeatherSidebarHeader = document.getElementById("worldWeatherSidebarHeader");
+    //var forecastContainer = document.getElementById('worldweatherPaneForecast');
+
+    worldWeatherSidebarHeader.setAttribute("class", "worldweatherSidebarURL");
+
+    var newOpacity = parseFloat(window.getComputedStyle(alertContainer, "").opacity) + weatherWatcher.gFadeIncrement;
+    //var newForecastOpacity = parseFloat(window.getComputedStyle(forecastContainer, "").opacity) + weatherWatcher.gFadeIncrement;
+
+    alertContainer.style.opacity = newOpacity;
+    //forecastContainer.style.opacity = newOpacity;
+    
+		clearTimeout(weatherWatcher.myFadeTimeout);
+
+    if (newOpacity < 1.0) {
+      weatherWatcher.myFadeTimeout = setTimeout(weatherWatcher.fadeOpen, weatherWatcher.gSlideTime);
+    }
+  },
+
+  fadeClose: function()  {
+    var alertContainer = document.getElementById("worldweatherFadeBox");
+    //var forecastContainer = document.getElementById('worldweatherPaneForecast');
+
+    var worldWeatherSidebarHeader = document.getElementById("worldWeatherSidebarHeader");
+
+    worldWeatherSidebarHeader.removeAttribute("class");
+
+    var newOpacity = parseFloat(window.getComputedStyle(alertContainer, "").opacity) - weatherWatcher.gFadeIncrement;
+    //var newForecastOpacity = parseFloat(window.getComputedStyle(forecastContainer, "").opacity) - weatherWatcher.gFadeIncrement;
+
+    alertContainer.style.opacity = newOpacity;
+    //forecastContainer.style.opacity = newOpacity;
+    
+		clearTimeout(weatherWatcher.myFadeTimeout);
+
+    if (newOpacity >= 0) {
+      weatherWatcher.myFadeTimeout = setTimeout(weatherWatcher.fadeClose, weatherWatcher.gSlideTime);
+    }
   }
 
 }

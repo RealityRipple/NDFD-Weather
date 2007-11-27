@@ -21,3 +21,4 @@
 <!ENTITY loading "Laden...">
 <!ENTITY error-message "Fehler beim Abruf der Wetterdaten.">
 <!ENTITY error-button "Nochmals versuchen?">
+<!ENTITY sidebar-forecast "Forecast">

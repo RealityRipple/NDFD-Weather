@@ -2,10 +2,10 @@
 <!ENTITY menu-refresh-accesskey "D">
 <!ENTITY menu-options-label "Opcje">
 <!ENTITY menu-options-accesskey "O">
-<!ENTITY menu-featured-label "Featured on weather.com">
-<!ENTITY menu-featured-accesskey "F">
+<!ENTITY menu-featured-label "Prezentowana na weather.com">
+<!ENTITY menu-featured-accesskey "P">
 <!ENTITY sidebar-header-label "Pogoda">
-<!ENTITY tooltip-reportedat "Reported at:">
+<!ENTITY tooltip-reportedat "Raportowana o:">
 <!ENTITY tooltip-lastupdated "Ostatnia aktualizacja">
 <!ENTITY tooltip-sunrise "Wschód słońca">
 <!ENTITY tooltip-sunset "Zachód słońca">
@@ -21,3 +21,4 @@
 <!ENTITY loading "Wczytywanie:">
 <!ENTITY error-message "Błąd pobierania danych pogodowych">
 <!ENTITY error-button "Spróbuj ponownie">
+<!ENTITY sidebar-forecast "Forecast">

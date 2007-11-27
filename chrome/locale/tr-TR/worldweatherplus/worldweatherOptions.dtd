@@ -1,6 +1,6 @@
 <!ENTITY window-title "World Weather Seçenekleri">
 <!ENTITY location-box-label "Bölge">
-<!ENTITY zip-label "PK:">
+<!ENTITY zip-label "Posta Kodu">
 <!ENTITY zip-description "Weather.com&apos;dan alabileceğiniz 8 rakamdan oluşan Uluslar Arası Bölge Kodunuz veya 5 haneli A.B.D. Posta Kodunuz">
 <!ENTITY zip-accesskey "P">
 <!ENTITY international-notice "(Uluslar arası destek gelecek sürümler için planlanmaktadır.)">
@@ -8,7 +8,7 @@
 <!ENTITY refresh-no-label "Asla otomatik yenileme">
 <!ENTITY refresh-yes-label "Her __ dakikada bir yenile">
 <!ENTITY about-box-label "Hakkında">
-<!ENTITY iconsize-box-label "Mevcut Durum İkon Boyutu">
+<!ENTITY iconsize-box-label "Mevcut Durum Simgesi Boyutu">
 <!ENTITY iconsize-small-label "Küçük">
 <!ENTITY iconsize-medium-label "Orta">
 <!ENTITY iconsize-large-label "Büyük">
@@ -21,7 +21,7 @@
 <!ENTITY unittype-metric-label "Metrik">
 <!ENTITY tabname-location-label "Bölge">
 <!ENTITY tabname-currentconditions-label "Mevcut Durum">
-<!ENTITY tabname-about-label "Hakkında:">
+<!ENTITY tabname-about-label "Hakkında">
 <!ENTITY created-by "Bu eklentiyi orijinal olarak geliştiren">
 <!ENTITY updated-by "Bu eklentiyi tekrar tasarlayan ve güncelleyen">
 <!ENTITY support "Destek veya hata bildirmek için">

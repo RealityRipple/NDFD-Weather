@@ -21,3 +21,4 @@
 <!ENTITY loading "Lataa...">
 <!ENTITY error-message "Virhe haettaessa säätietoja.">
 <!ENTITY error-button "Yritetäänkö uudelleen?">
+<!ENTITY sidebar-forecast "Forecast">

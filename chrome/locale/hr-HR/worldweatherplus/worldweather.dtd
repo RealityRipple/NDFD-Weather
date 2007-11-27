@@ -21,3 +21,4 @@
 <!ENTITY loading "Učitavanje...">
 <!ENTITY error-message "Greška prilikom dohvaćanja podataka.">
 <!ENTITY error-button "Ponovno pokušati?">
+<!ENTITY sidebar-forecast "Forecast">

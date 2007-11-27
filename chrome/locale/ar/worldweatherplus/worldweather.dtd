@@ -21,3 +21,4 @@
 <!ENTITY loading "جاري التحميل...">
 <!ENTITY error-message "حصل خطأ أثناء جلب المعلومات.">
 <!ENTITY error-button "إعادة المحاولة؟">
+<!ENTITY sidebar-forecast "Forecast">

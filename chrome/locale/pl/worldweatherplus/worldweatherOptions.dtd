@@ -7,13 +7,13 @@
 <!ENTITY refresh-box-label "Odśwież">
 <!ENTITY refresh-no-label "Nie odświeżaj automatycznie">
 <!ENTITY refresh-yes-label "Odśwież co__minut">
-<!ENTITY about-box-label "O...">
+<!ENTITY about-box-label "World Weather - informacje">
 <!ENTITY iconsize-box-label "Wielkość ikony aktualnych warunków pogodowych">
 <!ENTITY iconsize-small-label "Mała">
 <!ENTITY iconsize-medium-label "Średnia">
 <!ENTITY iconsize-large-label "Duża">
 <!ENTITY textsize-box-label "Wielkość tekstu aktualnych warunków pogodowych">
-<!ENTITY textsize-small-label "Małą">
+<!ENTITY textsize-small-label "Mała">
 <!ENTITY textsize-medium-label "Średnia">
 <!ENTITY textsize-large-label "Duża">
 <!ENTITY unittype-box-label "Jednostki miar">

@@ -21,3 +21,4 @@
 <!ENTITY loading "加载中...">
 <!ENTITY error-message "获取天气数据出错。">
 <!ENTITY error-button "重试？">
+<!ENTITY sidebar-forecast "Forecast">

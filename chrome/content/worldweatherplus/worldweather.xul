@@ -1,125 +1,13 @@
 <?xml version="1.0"?>
 
-<?xml-stylesheet href="chrome://worldweatherplus/skin/worldweather.css" type="text/css"?> 
-
-<!DOCTYPE window [
-<!ENTITY % worldweatherDTD SYSTEM "chrome://worldweatherplus/locale/worldweather.dtd"> %worldweatherDTD;
-]>
-
 <overlay id="worldweatherOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript" src="worldweather.js"/>
-
 	<vbox id="folderPaneBox" style="overflow: auto;">
-		<stringbundleset>
-			<stringbundle id="worldweatherplusstrings" src="chrome://worldweatherplus/locale/worldweather.properties"/>
-		</stringbundleset>
 
 		<splitter id="worldweather-mailpane-splitter" collapse="after" orient="vertical" persist="state"/>
 
-		<vbox id="worldweatherContainer" context="worldweatherMenu">
-			<popupset>
-				<popup id="worldweatherMenu">
-					<menuitem label="&menu-refresh-label;" accesskey="&menu-refresh-accesskey;" oncommand="weatherWatcher.initiateWorldWeather(); return false;"/>
-					<menuitem label="&menu-options-label;" accesskey="&menu-options-accesskey;" oncommand="window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome,dependent,modal');"/>
-					<menuitem label="&menu-featured-label;" accesskey="&menu-featured-accesskey;" oncommand="window.openDialog('chrome://worldweatherplus/content/worldweatherFeatured.xul', 'worldweatherFeatured', 'chrome,dependent,modal',link_data);"/>
-				</popup>
-			</popupset>
+		<vbox id="worldweatherContainer" />
 
-			<tooltip id="worldweatherMoreData" orient="vertical" noautohide="true">
-				<grid id="tooltipGrid">
-					<columns>
-						<column/>
-						<column flex="1"/>
-					</columns>
-					<rows>
-						<row>
-							<description class="tooltip-label" value="&tooltip-forecast;" />
-							<description id="worldweatherMoreData-Forecast" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-temperature;" />
-							<description id="worldweatherMoreData-Temprature" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-feelslike;" />
-							<description id="worldweatherMoreData-FeelsLike" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-wind;" />
-							<description id="worldweatherMoreData-Wind" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-visibility;" />
-							<description id="worldweatherMoreData-Visibility" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-pressure;" />
-							<description id="worldweatherMoreData-Pressure" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-dewpoint;" />
-							<description id="worldweatherMoreData-DewPoint" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-uvindex;" />
-							<description id="worldweatherMoreData-UVIndex" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-humidity;" />
-							<description id="worldweatherMoreData-Humidity" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-sunrise;" />
-							<description id="worldweatherMoreData-Sunrise" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-sunset;" />
-							<description id="worldweatherMoreData-Sunset" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-reportedat;" />
-							<description id="worldweatherMoreData-ReportedAt" />
-						</row>
-						<row>
-							<description class="tooltip-label" value="&tooltip-lastupdated;" />
-							<description id="worldweatherMoreData-LastUpdated" />
-						</row>
-					</rows>
-				</grid>
-
-				<description hidden="true" id="worldweatherMoreData-Location" />
-				<description hidden="true" id="worldweatherMoreData-IconIndex" />
-				<description hidden="true" id="worldweatherMoreData-PassXML" />
-			</tooltip>
-
-			<sidebarheader id="worldweatherPaneHeader" class="genericBar" align="center">
-				<description>&sidebar-header-label;</description>
-			</sidebarheader>
-
-			<deck id="worldweatherDeck" flex="1" selectedIndex="1">
-				<vbox id="worldweatherInfo" flex="1"  pack="center" tooltip="worldweatherMoreData">
-					<hbox id="displayWorldWeather-IconBox" pack="center">
-						<image id="displayWorldWeather-Icon"/>
-					</hbox>
-					<description crop="end" id="displayWorldWeather-Temperature" />
-					<description crop="end" id="displayWorldWeather-Location" />
-				</vbox>
-
-				<vbox id="worldweatherLoading" flex="1" pack="center">
-					<description crop="end" value="&loading;"/>
-					<progressmeter id="worldweatherProgress" mode="undetermined"  style="min-width: 0px;"/>
-				</vbox>
-
-				<vbox id="worldweatherError" flex="1" pack="center">
-					<hbox id="displayWorldWeather-IconBoxError" pack="center">
-						<image id="displayWorldWeather-IconError"/>
-					</hbox>
-					<description crop="end">&error-message;</description>
-					<button label="&error-button;" oncommand="weatherWatcher.initiateWorldWeather(); return false;"/>
-				</vbox>
-			</deck>
-		</vbox>
-	</vbox>
+	</vbox>	
 
 </overlay>
