@@ -6,15 +6,15 @@
 	
 		<em:id>{90bcd2b0-08f1-4db8-a136-8263c3f89cc8}</em:id>
 		<em:name>World Weather+</em:name>
-		<em:version>2.3</em:version>
+		<em:version>2.3.1</em:version>
 		<em:description>Display local weather information from around the world.</em:description>
 		<em:creator>Mel Reyes</em:creator>
 		<em:contributor>Original code by Luke Fessler</em:contributor>
 		<em:contributor>Updated by Matt Moyer</em:contributor>
+    <em:extension>true</em:extension>
 		
 		<em:homepageURL>http://www.mrtech.com/extensions/</em:homepageURL>
     <em:iconURL>chrome://worldweatherplus/content/ww.png</em:iconURL>
-	
 		<em:optionsURL>chrome://worldweatherplus/content/worldweatherOptions.xul</em:optionsURL>
 
     <em:file>
@@ -58,6 +58,30 @@
         <em:maxVersion>0.8pre</em:maxVersion>
       </Description>
     </em:targetApplication>
+
+		<em:targetApplication> <!-- SeaMonkey -->
+			<Description>
+				<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+				<em:minVersion>1.0</em:minVersion>
+				<em:maxVersion>2.0a1</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+ 		<em:targetApplication> <!-- Mozilla Suite -->
+			<Description>
+				<em:id>{86c18b42-e466-45a9-ae7a-9b95ba6f5640}</em:id>
+				<em:minVersion>1.7</em:minVersion>
+				<em:maxVersion>1.8+</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+		<em:targetApplication> <!-- eMusic -->
+			<Description>
+				<em:id>dlm@emusic.com</em:id>
+				<em:minVersion>1.0</em:minVersion>
+				<em:maxVersion>1.0.0.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
 
 	</Description>
 

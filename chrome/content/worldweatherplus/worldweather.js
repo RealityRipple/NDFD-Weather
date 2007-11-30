@@ -256,6 +256,8 @@ var weatherWatcher = {
 
     }
 
+    document.getElementById('worldweatherForecast').setAttribute('collapsed', 'true');
+
   	// Change the display from the loading message to the main info message
   	document.getElementById('worldweatherDeck').selectedIndex = "0";
   

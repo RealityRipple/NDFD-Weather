@@ -8,7 +8,8 @@
 
 <overlay id="worldweatherWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript" src="worldweather.js"/>
+	<script type="application/x-javascript" src="chrome://worldweatherplus/content/worldweather.js"/>
+  <script type="application/x-javascript" src="chrome://worldweatherplus/content/drag.js" />
 
 	<stringbundleset>
 		<stringbundle id="worldweatherplusstrings" src="chrome://worldweatherplus/locale/worldweather.properties"/>
@@ -93,23 +94,23 @@
 			<description hidden="true" id="worldweatherMoreData-PassXML" />
 		</tooltip>
 
-		<sidebarheader id="worldweatherPaneHeader" class="genericBar" align="center" flex="1"
+		<sidebarheader id="worldweatherPaneHeader" class="genericBar" align="center" 
 			onmouseover="setTimeout(weatherWatcher.fadeOpen, weatherWatcher.gSlideTime);"
 			onmouseout="setTimeout(weatherWatcher.fadeClose, weatherWatcher.gSlideTime);" >
 			<description id="worldWeatherSidebarHeader"
-				onclick="document.getElementById('worldweatherDeck').selectedIndex = '0'">&sidebar-header-label;</description>
+				onclick="document.getElementById('worldweatherDeck').selectedIndex = '0'; document.getElementById('worldweatherForecast').setAttribute('collapsed', 'true');">&sidebar-header-label;</description>
 			<spacer flex="1" />
 			<hbox id="worldweatherFadeBox" style="opacity: 0" flex="1">
-			<label id="worldweatherPaneForecast" value="&sidebar-forecast;" class="worldweatherSidebarURL" 
-				onclick="document.getElementById('worldweatherDeck').selectedIndex = '3'" />
-			<spacer flex="1" />
-			<label id="worldweatherSidebarOptions" value="&menu-options-label;" class="worldweatherSidebarURL"
-				onclick="window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome,dependent,modal');" />
+				<label id="worldweatherPaneForecast" value="&sidebar-forecast;" class="worldweatherSidebarURL" 
+					onclick="document.getElementById('worldweatherDeck').selectedIndex = '3'; document.getElementById('worldweatherForecast').setAttribute('collapsed', 'false');" />
+				<spacer flex="1" />
+				<label id="worldweatherSidebarOptions" value="&menu-options-label;" class="worldweatherSidebarURL"
+					onclick="window.openDialog('chrome://worldweatherplus/content/worldweatherOptions.xul', 'worldweatherOptions', 'chrome,dependent,modal');" />
 			</hbox>
 		</sidebarheader>
 
 		<deck id="worldweatherDeck" flex="1" selectedIndex="1">
-			<vbox id="worldweatherInfo" flex="1"  pack="center" tooltip="worldweatherMoreData">
+			<vbox id="worldweatherInfo" flex="1" pack="center" tooltip="worldweatherMoreData">
 				<hbox id="displayWorldWeather-IconBox" pack="center">
 					<image id="displayWorldWeather-Icon"/>
 				</hbox>
@@ -130,16 +131,16 @@
 				<button label="&error-button;" oncommand="weatherWatcher.initiateWorldWeather(); return false;"/>
 			</vbox>
 
-			<vbox id="worldweatherForecast" flex="1" pack="center">
+			<vbox id="worldweatherForecast" flex="1" pack="center" collapsed="true" >
 
-				<grid flex="1" pack="center">
+				<grid flex="1">
 					<columns>
-						<column flex="1"/>
-						<column flex="1"/>
-						<column flex="1"/>
+						<column flex="1" />
+						<column flex="1" />
+						<column flex="1" />
 					</columns>
 	
-					<rows>
+					<rows flex="1" >
 						<row>
 							<vbox>
 								<hbox id="displayWorldWeather-ForecastIconBox1" pack="center">
@@ -268,17 +269,5 @@
 		</deck>
 	</vbox>
 
-	<statusbar id="status-bar">
-		<statusbarpanel id="worldweatherStatusPanel" inserbefore="totalMessageCount">
-			<hbox style="background: white;" context="worldweatherMenu" tooltip="worldweatherMoreData">
-				<hbox id="displayWorldWeather-ForecastIconBar1" pack="center">
-					<image id="displayWorldWeather-ForecastTinyIcon1day" />
-					<image id="displayWorldWeather-ForecastTinyIcon1night" />
-				</hbox>
-				<description crop="end" id="displayWorldWeather-ForecastTinyTemperature1"
-					class="displayWorldWeather-Temperature-small" />
-			</hbox>
-		</statusbarpanel>
-	</statusbar>
 
 </overlay>

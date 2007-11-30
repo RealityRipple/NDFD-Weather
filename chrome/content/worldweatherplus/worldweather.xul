@@ -4,7 +4,7 @@
 
 	<vbox id="folderPaneBox" style="overflow: auto;">
 
-		<splitter id="worldweather-mailpane-splitter" collapse="after" orient="vertical" persist="state"/>
+		<splitter id="worldweather-mailpane-splitter" collapse="after" orient="vertical" persist="state" />
 
 		<vbox id="worldweatherContainer" />
 

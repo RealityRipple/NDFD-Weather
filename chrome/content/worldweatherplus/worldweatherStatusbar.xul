@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://worldweatherplus/skin/worldweather.css" type="text/css"?> 
+
+<!DOCTYPE overlay [
+<!ENTITY % worldweatherDTD SYSTEM "chrome://worldweatherplus/locale/worldweather.dtd"> %worldweatherDTD;
+]>
+
+<overlay id="worldweatherStatusbarWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js" />
+	<script type="application/x-javascript" src="chrome://global/content/nsTransferable.js" />
+
+	<stringbundleset>
+		<stringbundle id="worldweatherplusstrings" src="chrome://worldweatherplus/locale/worldweather.properties"/>
+	</stringbundleset>
+
+	<statusbar id="status-bar">
+		<statusbarpanel id="worldweatherStatusPanel" insertafter="statusTextBox"
+			ondraggesture="nsDragAndDrop.startDrag(event, worldWeather_statObserver);" >
+			<hbox class="chromeclass-toolbar-additional" context="worldweatherMenu" tooltip="worldweatherMoreData">
+				<hbox id="displayWorldWeather-ForecastIconBar1" pack="center" flex="1" style="background-color: white; padding-left: 3px; padding-right: 3px;">
+					<image id="displayWorldWeather-ForecastTinyIcon1day" style="height: 16px; width: 16px;" />
+					<image id="displayWorldWeather-ForecastTinyIcon1night" style="height: 16px; width: 16px;" />
+				</hbox>
+				<description crop="end" id="displayWorldWeather-ForecastTinyTemperature1"
+					class="displayWorldWeather-Temperature-small" />
+			</hbox>
+		</statusbarpanel>
+	</statusbar>
+
+</overlay>
