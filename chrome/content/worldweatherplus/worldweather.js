@@ -61,9 +61,11 @@ var weatherWatcher = {
 
   	netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
   	worldweatherRequest.overrideMimeType("text/xml");
-  	worldweatherRequest.open("GET", "http://xoap.weather.com/weather/local/" + this.zipcode + 
-                                    "?cc=*&dayf=9&unit=" + this.unittype + 
-                                    "&link=xoap&prod=xoap&par=1030266584&key=b1e4d322e4fc7c9d", true);
+    var weatherURL = "http://xoap.weather.com/weather/local/" + this.zipcode + 
+                     "?cc=*&dayf=9&unit=" + this.unittype + 
+                     "&link=xoap&prod=xoap&par=1030266584&key=b1e4d322e4fc7c9d"
+    this.debug(weatherURL);
+  	worldweatherRequest.open("GET", weatherURL, true);
   	worldweatherRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
   	worldweatherRequest.setRequestHeader("Pragma", "no-cache");
   	worldweatherRequest.setRequestHeader("Cache-Control", "no-cache");
@@ -90,10 +92,6 @@ var weatherWatcher = {
   			var passTagDAYF3   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[2];
   			var passTagDAYF4   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[3];
   			var passTagDAYF5   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[4];
-  			var passTagDAYF6   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[5];
-  			var passTagDAYF7   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[6];
-  			var passTagDAYF8   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[7];
-  			var passTagDAYF9   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[8];
   			
   			return_data["Location"]      = passTagLOC.getElementsByTagName("dnam")[0].firstChild.nodeValue;
   			return_data["IconIndex"]     = passTagCC.getElementsByTagName("icon")[0].firstChild.nodeValue;
@@ -116,10 +114,6 @@ var weatherWatcher = {
         return_data["forecast3"]     = passTagDAYF3;
         return_data["forecast4"]     = passTagDAYF4;
         return_data["forecast5"]     = passTagDAYF5;
-        return_data["forecast6"]     = passTagDAYF6;
-        return_data["forecast7"]     = passTagDAYF7;
-        return_data["forecast8"]     = passTagDAYF8;
-        return_data["forecast9"]     = passTagDAYF9;
         
   			if(passTagCC.getElementsByTagName("wind")[0].getElementsByTagName("s")[0].firstChild.nodeValue == "calm") {
   				return_data["Wind"] =  "Calm"
@@ -219,7 +213,7 @@ var weatherWatcher = {
   		}
   	}
 
-    for (var i = 1; i <= 9; ++i) {
+    for (var i = 1; i <= 5; ++i) {
       var forecastIconDay = weatherWatcher.current_worldweather["forecast" + i]
         .getElementsByTagName("part")[0].getElementsByTagName("icon")[0].firstChild.nodeValue;
       var forecastIconNight = weatherWatcher.current_worldweather["forecast" + i]
@@ -328,6 +322,15 @@ var weatherWatcher = {
 
     if (newOpacity >= 0) {
       weatherWatcher.myFadeTimeout = setTimeout(weatherWatcher.fadeClose, weatherWatcher.gSlideTime);
+    }
+  },
+
+  debug: function(aLogString) {
+    var mConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
+           .getService(Components.interfaces.nsIConsoleService)
+  
+  	if(mConsoleService) {
+    	mConsoleService.logStringMessage("MR Tech: " + aLogString + "\n");
     }
   }
 

@@ -17,7 +17,7 @@
 
 	<statusbar id="status-bar">
 		<statusbarpanel id="worldweatherStatusPanel" insertafter="statusTextBox"
-			ondraggesture="nsDragAndDrop.startDrag(event, worldWeather_statObserver);" >
+			ondraggesture="nsDragAndDrop.startDrag(event, worldWeather_statObserver);" tooltip="worldweatherMoreData">
 			<hbox class="chromeclass-toolbar-additional" context="worldweatherMenu" tooltip="worldweatherMoreData">
 				<hbox id="displayWorldWeather-ForecastIconBar1" pack="center" flex="1" style="background-color: white; padding-left: 3px; padding-right: 3px;">
 					<image id="displayWorldWeather-ForecastTinyIcon1day" style="height: 16px; width: 16px;" />
