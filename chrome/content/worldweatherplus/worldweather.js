@@ -63,8 +63,8 @@ var weatherWatcher = {
   	worldweatherRequest.overrideMimeType("text/xml");
     var weatherURL = "http://xoap.weather.com/weather/local/" + this.zipcode + 
                      "?cc=*&dayf=9&unit=" + this.unittype + 
-                     "&link=xoap&prod=xoap&par=1030266584&key=b1e4d322e4fc7c9d"
-    this.debug(weatherURL);
+                     "&link=xoap&par=1030266584&key=b1e4d322e4fc7c9d"
+    //this.debug(weatherURL);
   	worldweatherRequest.open("GET", weatherURL, true);
   	worldweatherRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
   	worldweatherRequest.setRequestHeader("Pragma", "no-cache");
@@ -92,6 +92,10 @@ var weatherWatcher = {
   			var passTagDAYF3   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[2];
   			var passTagDAYF4   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[3];
   			var passTagDAYF5   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[4];
+  			var passTagDAYF6   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[5];
+  			var passTagDAYF7   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[6];
+  			var passTagDAYF8   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[7];
+  			var passTagDAYF9   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[8];
   			
   			return_data["Location"]      = passTagLOC.getElementsByTagName("dnam")[0].firstChild.nodeValue;
   			return_data["IconIndex"]     = passTagCC.getElementsByTagName("icon")[0].firstChild.nodeValue;
@@ -114,6 +118,10 @@ var weatherWatcher = {
         return_data["forecast3"]     = passTagDAYF3;
         return_data["forecast4"]     = passTagDAYF4;
         return_data["forecast5"]     = passTagDAYF5;
+        return_data["forecast6"]     = passTagDAYF6;
+        return_data["forecast7"]     = passTagDAYF7;
+        return_data["forecast8"]     = passTagDAYF8;
+        return_data["forecast9"]     = passTagDAYF9;
         
   			if(passTagCC.getElementsByTagName("wind")[0].getElementsByTagName("s")[0].firstChild.nodeValue == "calm") {
   				return_data["Wind"] =  "Calm"
@@ -121,13 +129,23 @@ var weatherWatcher = {
   				return_data["Wind"] = passTagCC.getElementsByTagName("wind")[0].getElementsByTagName("t")[0].firstChild.nodeValue + " " + passTagCC.getElementsByTagName("wind")[0].getElementsByTagName("s")[0].firstChild.nodeValue + " " + passTagHEAD.getElementsByTagName("us")[0].firstChild.nodeValue;
   			}
   			
-  			var passLINKS = passXML.getElementsByTagName("lnks")[0].getElementsByTagName("link")
-  			for(i=0; i < passLINKS.length; i++) {
-  				link_data[0][i] = passLINKS[i].getElementsByTagName("l")[0].firstChild.nodeValue;
-  				link_data[1][i] = passLINKS[i].getElementsByTagName("t")[0].firstChild.nodeValue;
-  			}
+  			// var passLINKS = passXML.getElementsByTagName("lnks")[0].getElementsByTagName("link")
+  			// for(i=0; i < passLINKS.length; i++) {
+  				link_data[0][0] = "http://www.weather.com/allergies?par=xoap&amp;site=textlink&amp;cm_ven=XOAP&amp;cm_cat=TextLink&amp;cm_pla=Link1&amp;cm_ite=Allergies"
+  				link_data[1][0] = "Local Pollen Reports"
+
+  				link_data[0][1] = "http://www.weather.com/flights?par=xoap&amp;site=textlink&amp;cm_ven=XOAP&amp;cm_cat=TextLink&amp;cm_pla=Link2&amp;cm_ite=BusinessTraveler"
+  				link_data[1][1] = "Airport Conditions"
+
+  				link_data[0][2] = "http://www.weather.com/garden?par=xoap&amp;site=textlink&amp;cm_ven=XOAP&amp;cm_cat=TextLink&amp;cm_pla=Link3&amp;cm_ite=Garden"
+  				link_data[1][2] = "Lawn and Garden Weather"
+
+  				link_data[0][3] = "http://www.weather.com/traffic?par=xoap&amp;site=textlink&amp;cm_ven=XOAP&amp;cm_cat=TextLink&amp;cm_pla=Link4&amp;cm_ite=Traffic"
+  				link_data[1][3] = "Rush Hour Traffic"
+          // }
   				
-  		} catch (e) {
+  		} catch (ex) {
+        weatherWatcher.debug(ex)
         // If the file is corrupted, display the error message.
         weatherWatcher.current_worldweather = "Error"
   		  weatherWatcher.current_links = ""
@@ -152,7 +170,8 @@ var weatherWatcher = {
   		worldweatherRequest.send(null);
   		// If we don't hear back from the remote web service in 5 seconds, display the error message.
   		this.myTimeout = setTimeout("weatherWatcher.current_worldweather = 'Error'; weatherWatcher.current_links = ''; weatherWatcher.displayWorldWeather();", 5000);
-  	} catch (e) {
+  	} catch (ex) {
+      weatherWatcher.debug(ex)
   	// If we can't send the request, display the error message.
       weatherWatcher.current_worldweather = "Error"
   	  weatherWatcher.current_links = ""
@@ -213,7 +232,7 @@ var weatherWatcher = {
   		}
   	}
 
-    for (var i = 1; i <= 5; ++i) {
+    for (var i = 1; i <= 9; ++i) {
       var forecastIconDay = weatherWatcher.current_worldweather["forecast" + i]
         .getElementsByTagName("part")[0].getElementsByTagName("icon")[0].firstChild.nodeValue;
       var forecastIconNight = weatherWatcher.current_worldweather["forecast" + i]
@@ -325,13 +344,10 @@ var weatherWatcher = {
     }
   },
 
-  debug: function(aLogString) {
+  debug: function() {
     var mConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
            .getService(Components.interfaces.nsIConsoleService)
-  
-  	if(mConsoleService) {
-    	mConsoleService.logStringMessage("MR Tech: " + aLogString + "\n");
-    }
+    mConsoleService.logStringMessage("World Weather: " + Array.join(arguments, ": ") + "\n");
   }
 
 }

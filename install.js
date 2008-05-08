@@ -8,7 +8,7 @@ var XpiInstaller = {
   // --- Editable items begin ---
   extFullName    : 'World Weather+', // The name displayed to the user (don't include the version)
   extShortName   : 'worldweatherplus', // The leafname of the JAR file (without the .jar part)
-  extVersion     : '2.3.2',
+  extVersion     : '2.3.3',
   extAuthor      : 'Mel Reyes',
   extLocaleNames : ['en-US', 'ar', 'de-DE', 'fi-FI', 'fr-FR', 'fy-NL','hr-HR', 'hu-HU', 'it-IT', 'lt-LT', 'nl-NL', 'pl', 'pt-PT', 'ru-RU', 'sk', 'sr-YU', 'tr-TR', 'zh-CN', 'zh-TW'],
   extSkinNames   : ['classic'], // e.g., ['classic','modern']
