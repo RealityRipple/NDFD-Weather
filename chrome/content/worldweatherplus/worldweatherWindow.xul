@@ -137,7 +137,7 @@
 					<columns>
 						<column flex="1" />
 						<column flex="1" />
-						<column flex="1" />
+<!--						<column flex="1" /> -->
 					</columns>
 	
 					<rows flex="1" >
@@ -183,7 +183,7 @@
 
 						</row>
 						<row>
-							<vbox>
+							<vbox> 
 								<hbox id="displayWorldWeather-ForecastIconBox4" pack="center">
 									<image id="displayWorldWeather-ForecastIcon4day"
 									class="displayWorldWeather-Icon-small" />
@@ -222,7 +222,7 @@
 									class="displayWorldWeather-Temperature-small" />
 							</vbox>
 						</row>
-						<row>
+<!--						<row>
 							<vbox>
 								<hbox id="displayWorldWeather-ForecastIconBox7" pack="center">
 									<image id="displayWorldWeather-ForecastIcon7day"
@@ -262,6 +262,7 @@
 									class="displayWorldWeather-Temperature-small" />
 							</vbox>
 						</row>
+-->
 					</rows>
 				</grid>
 			</vbox>

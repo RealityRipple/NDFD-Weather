@@ -62,9 +62,9 @@ var weatherWatcher = {
   	netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
   	worldweatherRequest.overrideMimeType("text/xml");
     var weatherURL = "http://xoap.weather.com/weather/local/" + this.zipcode + 
-                     "?cc=*&dayf=9&unit=" + this.unittype + 
-                     "&link=xoap&par=1030266584&key=b1e4d322e4fc7c9d"
-    //this.debug(weatherURL);
+                     "?cc=*&dayf=5&unit=" + this.unittype + 
+                     "&link=xoap&prod=xoap&par=1030266584&key=b1e4d322e4fc7c9d"
+    this.debug(weatherURL);
   	worldweatherRequest.open("GET", weatherURL, true);
   	worldweatherRequest.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
   	worldweatherRequest.setRequestHeader("Pragma", "no-cache");
@@ -92,10 +92,10 @@ var weatherWatcher = {
   			var passTagDAYF3   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[2];
   			var passTagDAYF4   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[3];
   			var passTagDAYF5   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[4];
-  			var passTagDAYF6   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[5];
-  			var passTagDAYF7   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[6];
-  			var passTagDAYF8   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[7];
-  			var passTagDAYF9   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[8];
+  			// var passTagDAYF6   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[5];
+  			// var passTagDAYF7   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[6];
+  			// var passTagDAYF8   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[7];
+  			// var passTagDAYF9   = passXML.getElementsByTagName("dayf")[0].getElementsByTagName("day")[8];
   			
   			return_data["Location"]      = passTagLOC.getElementsByTagName("dnam")[0].firstChild.nodeValue;
   			return_data["IconIndex"]     = passTagCC.getElementsByTagName("icon")[0].firstChild.nodeValue;
@@ -118,10 +118,10 @@ var weatherWatcher = {
         return_data["forecast3"]     = passTagDAYF3;
         return_data["forecast4"]     = passTagDAYF4;
         return_data["forecast5"]     = passTagDAYF5;
-        return_data["forecast6"]     = passTagDAYF6;
-        return_data["forecast7"]     = passTagDAYF7;
-        return_data["forecast8"]     = passTagDAYF8;
-        return_data["forecast9"]     = passTagDAYF9;
+        // return_data["forecast6"]     = passTagDAYF6;
+        // return_data["forecast7"]     = passTagDAYF7;
+        // return_data["forecast8"]     = passTagDAYF8;
+        // return_data["forecast9"]     = passTagDAYF9;
         
   			if(passTagCC.getElementsByTagName("wind")[0].getElementsByTagName("s")[0].firstChild.nodeValue == "calm") {
   				return_data["Wind"] =  "Calm"
@@ -232,14 +232,16 @@ var weatherWatcher = {
   		}
   	}
 
-    for (var i = 1; i <= 9; ++i) {
+    for (var i = 1; i <= 5; ++i) {
       var forecastIconDay = weatherWatcher.current_worldweather["forecast" + i]
         .getElementsByTagName("part")[0].getElementsByTagName("icon")[0].firstChild.nodeValue;
       var forecastIconNight = weatherWatcher.current_worldweather["forecast" + i]
         .getElementsByTagName("part")[1].getElementsByTagName("icon")[0].firstChild.nodeValue;
 
       var forecastDay = weatherWatcher.current_worldweather["forecast" + i]
-        .getAttribute("t");
+				.getElementsByTagName("part")[0].getElementsByTagName("t")[0].firstChild.nodeValue;
+      var forecastNight = weatherWatcher.current_worldweather["forecast" + i]
+				.getElementsByTagName("part")[1].getElementsByTagName("t")[0].firstChild.nodeValue;
 
       var forecastHi = weatherWatcher.current_worldweather["forecast" + i]
         .getElementsByTagName("hi")[0].firstChild.nodeValue;
@@ -258,8 +260,13 @@ var weatherWatcher = {
 
       document.getElementById("displayWorldWeather-ForecastIcon" + i + "day")
         .setAttribute("src", "chrome://worldweatherplus/skin/icons/large/" + forecastIconDay + ".png");
-      document.getElementById("displayWorldWeather-ForecastIcon" + i + "night")
+      document.getElementById("displayWorldWeather-ForecastIcon" + i + "day")
+        .setAttribute("tooltiptext", forecastDay);
+
+			document.getElementById("displayWorldWeather-ForecastIcon" + i + "night")
         .setAttribute("src", "chrome://worldweatherplus/skin/icons/large/" + forecastIconNight + ".png");
+      document.getElementById("displayWorldWeather-ForecastIcon" + i + "night")
+        .setAttribute("tooltiptext", forecastNight);
 
       document.getElementById("displayWorldWeather-ForecastTemperature" + i)
         .setAttribute("value", forecastHi + " / " + forecastLow);
