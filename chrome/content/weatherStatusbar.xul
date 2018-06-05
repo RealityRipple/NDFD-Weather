@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://ndfdweather/skin/weather.css" type="text/css"?> 
+<!DOCTYPE overlay SYSTEM "chrome://ndfdweather/locale/weather.dtd">
+<overlay id="weatherStatusbarWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ <script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js" />
+ <script type="application/x-javascript" src="chrome://global/content/nsTransferable.js" />
+ <statusbar id="status-bar">
+  <statusbarpanel id="weatherStatusPanel" insertafter="statusTextBox" ondraggesture="nsDragAndDrop.startDrag(event, weather_statObserver);" tooltip="weatherMoreData">
+   <hbox class="chromeclass-toolbar-additional" context="weatherMenu" tooltip="weatherMoreData">
+    <hbox id="displayWeather-ForecastIconBar1" pack="center" flex="1">
+     <image id="displayWeather-ForecastTinyIcon1day" />
+     <image id="displayWeather-ForecastTinyIcon1night" />
+    </hbox>
+    <description crop="end" id="displayWeather-ForecastTinyTemperature1" class="displayWeather-Temperature-small" />
+   </hbox>
+  </statusbarpanel>
+ </statusbar>
+</overlay>

@@ -1,0 +1,28 @@
+<!ENTITY menu-refresh-label "Refresh">
+<!ENTITY menu-refresh-accesskey "R">
+<!ENTITY menu-options-label "Options">
+<!ENTITY menu-options-accesskey "O">
+<!ENTITY sidebar-header-label "Weather">
+<!ENTITY menu-weather-accesskey "W">
+<!ENTITY sidebar-forecast "Forecast">
+<!ENTITY menu-forecast-accesskey "F">
+<!ENTITY tooltip-lastupdated "Last Updated:">
+<!ENTITY tooltip-temperature "Temperature:">
+<!ENTITY tooltip-feelslike "Feels Like:">
+<!ENTITY tooltip-wind "Wind:">
+<!ENTITY tooltip-forecast "Conditions:">
+<!ENTITY tooltip-visibility "Visibility:">
+<!ENTITY tooltip-dewpoint "Dew Point:">
+<!ENTITY tooltip-humidity "Humidity:">
+<!ENTITY tooltip-cloudcover "Cloud Cover:">
+<!ENTITY tooltip-snow "Snowfall:">
+<!ENTITY tooltip-ice "Ice Accumulation:">
+<!ENTITY tooltip-sunrise "Sunrise:">
+<!ENTITY tooltip-sunset "Sunset:">
+<!ENTITY tooltip-moonrise "Moonrise:">
+<!ENTITY tooltip-moonset "Moonset:">
+<!ENTITY tooltip-moonphase "Moon Phase:">
+<!ENTITY tooltip-warnings "Warnings:">
+<!ENTITY loading "Loading...">
+<!ENTITY error-message "Error retrieving weather data.">
+<!ENTITY error-button "Reload">

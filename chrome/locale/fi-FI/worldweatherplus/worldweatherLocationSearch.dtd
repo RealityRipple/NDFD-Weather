@@ -1,5 +1,0 @@
-<!ENTITY window-title "World Weather - Sijaintitunnuksen etsintä">
-<!ENTITY search-box-label "weather.com -sijaintitunnuksen etsintä">
-<!ENTITY search-box-description "Syötä &quot;Kaupunki, Osavaltio&quot;; &quot;Kaupunki, Valtio&quot;; &quot;Kaupunki&quot;; tai &quot;Postinumero&quot;">
-<!ENTITY search-button-label "Etsi">
-<!ENTITY searchresult-box-label "Valitse tulos">

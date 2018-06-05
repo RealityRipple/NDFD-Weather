@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://ndfdweather/locale/weatherOptions.dtd">
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        id="weatherOptionsWindow"
+        persist="screenX screenY"
+        title="&window-title;"
+        buttons="accept, cancel"
+        onload="initWeatherOptions();"
+        ondialogaccept="return saveWeatherOptions();">
+ <script type="application/x-javascript" src="chrome://ndfdweather/content/weatherOptions.js" />
+  <hbox>
+   <vbox>
+    <groupbox orient="vertical">
+     <caption label="&location-box-label;" />
+     <radiogroup id="locationGroup">
+      <hbox>
+       <radio id="locationZip" value="zip" label="&zip-description;" oncommand="toggleLocation('zip');" />
+       <spacer flex="1" />
+       <textbox id="zipcodeInput" size="8" maxlength="5" />
+      </hbox>
+      <hbox align="baseline">
+       <radio id="locationCoord" value="coord" label="&coord-description;" oncommand="toggleLocation('geo');" />
+       <textbox id="coordInputLat" type="number" min="-90" max="90" increment="0.1" decimalplaces="3" size="6"  hidespinbuttons="true" />
+       <textbox id="coordInputLon" type="number" min="-180" max="180" increment="0.1" decimalplaces="3" size="7" hidespinbuttons="true" />
+      </hbox>
+      <hbox align="right">
+       <menulist id="coordServer">
+        <menupopup>
+         <menuitem label="ipapi.co"      value="https://ipapi.co/json"/>
+         <menuitem label="freegeoip.net" value="https://freegeoip.net/json/"/>
+         <menuitem label="nekudo.com"    value="https://geoip.nekudo.com/api/"/>
+        </menupopup>
+       </menulist>
+       <button id="coordFind" label="&coord-discover;" oncommand="getGeoData();" />
+      </hbox>
+     </radiogroup>
+    </groupbox>
+    <groupbox>
+     <caption label="&refresh-box-label;" />
+     <radiogroup id="refreshGroup">
+      <radio id="refreshNo" value="no" label="&refresh-no-label;" />
+      <hbox align="baseline">
+       <radio id="refreshYes" value="yes" label="&refresh-yes-label;" />
+       <textbox id="refreshMinutes" size="4" maxlength="4" type="number" min="30" max="1440" increment="1" />
+       <description>&refresh-minutes-label;</description>
+      </hbox>
+     </radiogroup>
+    </groupbox>
+    <groupbox>
+     <caption label="&sunandmoon-box-label;" />
+     <description>&sunandmoon-secure-label;</description>
+     <description>&sunandmoon-secure-warn;</description>
+     <radiogroup id="sunGroup">
+      <hbox>
+       <spacer flex="1" />
+       <radio id="sunNo" value="no" label="&sunandmoon-no-label;" />
+       <spacer flex="1" />
+       <radio id="sunYes" value="yes" label="&sunandmoon-yes-label;" />
+       <spacer flex="1" />
+      </hbox>
+     </radiogroup>
+    </groupbox>
+   </vbox>
+   <vbox>
+<!--
+    <hbox>
+     <image src="chrome://ndfdweather/skin/logo.png" />
+     <spacer flex="1" />
+     <vbox>
+      <description class="header">NDFD Weather</description>
+      <spacer flex="1" />
+      <description>Data provided by the</description>
+      <label class="text-link" href="https://www.weather.gov/" value="National Weather Service" />
+     </vbox>
+    </hbox>
+ -->
+    <spacer flex="1" />
+    <groupbox>
+     <caption label="&forecastdays-box-label;" />
+     <hbox>
+      <scale id="forecastDays" min="1" max="5" increment="1" onchange="forecastLabelUpdate()" />
+      <spacer flex="1" />
+      <label id="forecastDaysAhead" />
+     </hbox>
+    </groupbox>
+    <groupbox>
+     <caption label="&statusbar-box-label;" />
+     <radiogroup id="statusGroup">
+      <hbox>
+       <spacer flex="1" />
+       <radio id="statusYes" value="yes" label="&statusbar-yes-label;" />
+       <spacer flex="1" />
+       <radio id="statusNo" value="no" label="&statusbar-no-label;" />
+       <spacer flex="1" />
+      </hbox>
+     </radiogroup>
+    </groupbox>
+    <groupbox>
+     <caption label="&unittype-box-label;" />
+     <radiogroup id="unittypeGroup">
+      <hbox>
+       <spacer flex="1" />
+       <radio id="unittypeStandard" value="e" label="&unittype-standard-label;" />
+       <spacer flex="1" />
+       <radio id="unittypeMetric" value="m" label="&unittype-metric-label;" />
+       <spacer flex="1" />
+      </hbox>
+     </radiogroup>
+    </groupbox>
+    <groupbox>
+     <caption label="&iconsize-box-label;" />
+     <radiogroup id="iconsizeGroup">
+      <hbox>
+       <radio id="iconsizeSmall" value="small" label="&iconsize-small-label;" />
+       <radio id="iconsizeMedium" value="medium" label="&iconsize-medium-label;" />
+       <radio id="iconsizeLarge" value="large" label="&iconsize-large-label;" />
+      </hbox>
+     </radiogroup>
+    </groupbox>
+    <groupbox>
+     <caption label="&textsize-box-label;" />
+     <radiogroup id="textsizeGroup">
+      <hbox>
+       <radio id="textsizeSmall" value="small" label="&textsize-small-label;" />
+       <radio id="textsizeMedium" value="medium" label="&textsize-medium-label;" />
+       <radio id="textsizeLarge" value="large" label="&textsize-large-label;" />
+      </hbox>
+     </radiogroup>
+    </groupbox>
+   </vbox>
+  </hbox>
+</dialog>

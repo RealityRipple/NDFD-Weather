@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://ndfdweather/skin/weather.css" type="text/css"?> 
+<!DOCTYPE overlay SYSTEM "chrome://ndfdweather/locale/weather.dtd">
+<overlay id="weatherWindow" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ <script type="application/x-javascript" src="chrome://ndfdweather/content/weather.js"/>
+  <script type="application/x-javascript" src="chrome://ndfdweather/content/drag.js" />
+ <vbox id="weatherMailContainer" context="weatherMenu">
+  <popupset>
+   <popup id="weatherMenu">
+    <menuitem label="&menu-refresh-label;" accesskey="&menu-refresh-accesskey;" oncommand="weatherWatcher.initiateWeather(); return false;" />
+    <menuitem label="&menu-options-label;" accesskey="&menu-options-accesskey;" oncommand="window.openDialog('chrome://ndfdweather/content/weatherOptions.xul', 'weatherOptions', 'chrome,dependent,modal');" />
+   </popup>
+  </popupset>
+  <tooltip id="weatherMoreData" orient="vertical" noautohide="true">
+   <grid id="tooltipGrid">
+    <columns>
+     <column/>
+     <column flex="1"/>
+    </columns>
+    <rows>
+     <row>
+      <description class="tooltip-label" value="&tooltip-forecast;" />
+      <description id="weatherMoreData-Forecast" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-temperature;" />
+      <description id="weatherMoreData-Temperature" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-feelslike;" />
+      <description id="weatherMoreData-FeelsLike" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-wind;" />
+      <description id="weatherMoreData-Wind" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-cloudcover;" />
+      <description id="weatherMoreData-CloudCover" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-dewpoint;" />
+      <description id="weatherMoreData-DewPoint" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-humidity;" />
+      <description id="weatherMoreData-Humidity" />
+     </row>
+     <row class="weatherMoreData-SunAndMoonBox">
+      <description class="tooltip-label" value="&tooltip-sunrise;" />
+      <description id="weatherMoreData-Sunrise" />
+     </row>
+     <row class="weatherMoreData-SunAndMoonBox">
+      <description class="tooltip-label" value="&tooltip-sunset;" />
+      <description id="weatherMoreData-Sunset" />
+     </row>
+     <row class="weatherMoreData-SunAndMoonBox">
+      <description class="tooltip-label" value="&tooltip-moonrise;" />
+      <description id="weatherMoreData-Moonrise" />
+     </row>
+     <row class="weatherMoreData-SunAndMoonBox">
+      <description class="tooltip-label" value="&tooltip-moonset;" />
+      <description id="weatherMoreData-Moonset" />
+     </row>
+     <row class="weatherMoreData-SunAndMoonBox">
+      <description class="tooltip-label" value="&tooltip-moonphase;" />
+						<vbox>
+       <description id="weatherMoreData-MoonPhase" />
+       <description id="weatherMoreData-MoonIllum" />
+						</vbox>
+     </row>
+     <row id="weatherMoreData-SnowBox">
+      <description class="tooltip-label" value="&tooltip-snow;" />
+      <description id="weatherMoreData-Snow" />
+     </row>
+     <row id="weatherMoreData-IceBox">
+      <description class="tooltip-label" value="&tooltip-ice;" />
+      <description id="weatherMoreData-Ice" />
+     </row>
+     <row id="weatherMoreData-WarningBox">
+      <description class="tooltip-label" value="&tooltip-warnings;" />
+      <description id="weatherMoreData-Warnings" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-lastupdated;" />
+      <description id="weatherMoreData-LastUpdated" />
+     </row>
+    </rows>
+   </grid>
+  </tooltip>
+  <tooltip id="weatherForeData" orient="vertical" noautohide="true" onpopupshowing="return weatherWatcher.foreData(document.tooltipNode);">
+   <grid id="tooltipGrid">
+    <columns>
+     <column/>
+     <column flex="1"/>
+    </columns>
+    <rows>
+     <row>
+      <description class="tooltip-label" value="&tooltip-forecast;" />
+      <description id="weatherForeData-Forecast" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-temperature;" />
+      <description id="weatherForeData-Temperature" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-feelslike;" />
+      <description id="weatherForeData-FeelsLike" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-wind;" />
+      <description id="weatherForeData-Wind" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-cloudcover;" />
+      <description id="weatherForeData-CloudCover" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-dewpoint;" />
+      <description id="weatherForeData-DewPoint" />
+     </row>
+     <row>
+      <description class="tooltip-label" value="&tooltip-humidity;" />
+      <description id="weatherForeData-Humidity" />
+     </row>
+     <row id="weatherForeData-SnowBox">
+      <description class="tooltip-label" value="&tooltip-snow;" />
+      <description id="weatherForeData-Snow" />
+     </row>
+     <row id="weatherForeData-IceBox">
+      <description class="tooltip-label" value="&tooltip-ice;" />
+      <description id="weatherForeData-Ice" />
+     </row>
+     <row id="weatherForeData-WarningBox">
+      <description class="tooltip-label" value="&tooltip-warnings;" />
+      <description id="weatherForeData-Warnings" />
+     </row>
+    </rows>
+   </grid>
+  </tooltip>
+  <sidebarheader id="weatherMailPaneHeader" class="genericBar">
+   <toolbarbutton type="menu" id="weatherMailPaneSelector" label="&sidebar-header-label;">
+    <menupopup>
+     <menuitem id="weatherMailPaneMenu0" label="&sidebar-header-label;" value="0" accesskey="&menu-weather-accesskey;" oncommand="weatherWatcher.weatherPaneSelector('Mail', '0');" />
+     <menuitem id="weatherMailPaneMenu3" label="&sidebar-forecast;" value="3" accesskey="&menu-forecast-accesskey;" oncommand="weatherWatcher.weatherPaneSelector('Mail', '3');" />
+     <menuseparator />
+     <menuitem label="&menu-refresh-label;" value="R" accesskey="&menu-refresh-accesskey;" oncommand="weatherWatcher.initiateWeather();"/>
+     <menuitem label="&menu-options-label;" value="O" accesskey="&menu-options-accesskey;" oncommand="window.openDialog('chrome://ndfdweather/content/weatherOptions.xul', 'weatherOptions', 'chrome,dependent,modal');" />
+    </menupopup>
+   </toolbarbutton>
+  </sidebarheader>
+  <deck id="weatherMailDeck" flex="1" selectedIndex="1" class="mail-toolbox">
+   <vbox id="weatherMailInfo" flex="1" pack="center" tooltip="weatherMoreData">
+    <hbox id="displayMailWeather-IconBox" pack="center">
+     <image id="displayMailWeather-Icon"/>
+    </hbox>
+    <description crop="end" id="displayMailWeather-Temperature" />
+    <description crop="end" id="displayMailWeather-Location" />
+   </vbox>
+   <vbox id="weatherMailLoading" flex="1" pack="center">
+    <description crop="end" value="&loading;"/>
+    <progressmeter id="weatherMailProgress" mode="undetermined"  style="min-width: 0px;"/>
+   </vbox>
+   <vbox id="weatherMailError" flex="1" pack="center">
+    <hbox id="displayMailWeather-IconBoxError" pack="center">
+     <image id="displayMailWeather-IconError"/>
+    </hbox>
+    <description crop="end">&error-message;</description>
+    <button label="&error-button;" oncommand="weatherWatcher.initiateWeather(); return false;"/>
+   </vbox>
+   <vbox id="weatherMailForecast" flex="1" pack="center" collapsed="true" >
+    <description>
+     <vbox>
+      <hbox id="displayMailWeather-ForecastIconBox1" pack="center">
+       <image id="displayMailWeather-ForecastIcon1day" class="displayWeather-Icon-small" />
+       <image id="displayMailWeather-ForecastIcon1night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayMailWeather-ForecastTemperature1" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayMailWeather-ForecastLocation1" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayMailWeather-ForecastIconBox2" pack="center">
+       <image id="displayMailWeather-ForecastIcon2day" class="displayWeather-Icon-small" />
+       <image id="displayMailWeather-ForecastIcon2night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayMailWeather-ForecastTemperature2" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayMailWeather-ForecastLocation2" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayMailWeather-ForecastIconBox3" pack="center">
+       <image id="displayMailWeather-ForecastIcon3day" class="displayWeather-Icon-small" />
+       <image id="displayMailWeather-ForecastIcon3night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayMailWeather-ForecastTemperature3" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayMailWeather-ForecastLocation3" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox> 
+      <hbox id="displayMailWeather-ForecastIconBox4" pack="center">
+       <image id="displayMailWeather-ForecastIcon4day" class="displayWeather-Icon-small" />
+       <image id="displayMailWeather-ForecastIcon4night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayMailWeather-ForecastTemperature4" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayMailWeather-ForecastLocation4" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayMailWeather-ForecastIconBox5" pack="center">
+       <image id="displayMailWeather-ForecastIcon5day" class="displayWeather-Icon-small" />
+       <image id="displayMailWeather-ForecastIcon5night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayMailWeather-ForecastTemperature5" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayMailWeather-ForecastLocation5" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayMailWeather-ForecastIconBox6" pack="center">
+       <image id="displayMailWeather-ForecastIcon6day" class="displayWeather-Icon-small" />
+       <image id="displayMailWeather-ForecastIcon6night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayMailWeather-ForecastTemperature6" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayMailWeather-ForecastLocation6" class="displayWeather-Location-medium" />
+     </vbox>
+    </description>
+   </vbox>
+  </deck>
+ </vbox>
+ 
+ <vbox id="weatherCalContainer" context="weatherMenu">
+  <sidebarheader id="weatherCalPaneHeader" class="genericBar">
+   <toolbarbutton type="menu" id="weatherCalPaneSelector" label="&sidebar-header-label;">
+    <menupopup>
+     <menuitem id="weatherCalPaneMenu0" label="&sidebar-header-label;" value="0" accesskey="&menu-weather-accesskey;" oncommand="weatherWatcher.weatherPaneSelector('Cal', '0');" />
+     <menuitem id="weatherCalPaneMenu3" label="&sidebar-forecast;" value="3" accesskey="&menu-forecast-accesskey;" oncommand="weatherWatcher.weatherPaneSelector('Cal', '3');" />
+     <menuseparator />
+     <menuitem label="&menu-refresh-label;" value="R" accesskey="&menu-refresh-accesskey;" oncommand="weatherWatcher.initiateWeather();"/>
+     <menuitem label="&menu-options-label;" value="O" accesskey="&menu-options-accesskey;" oncommand="window.openDialog('chrome://ndfdweather/content/weatherOptions.xul', 'weatherOptions', 'chrome,dependent,modal');" />
+    </menupopup>
+   </toolbarbutton>
+  </sidebarheader>
+  <deck id="weatherCalDeck" flex="1" selectedIndex="1" class="mail-toolbox">
+   <vbox id="weatherCalInfo" flex="1" pack="center" tooltip="weatherMoreData">
+    <hbox id="displayCalWeather-IconBox" pack="center">
+     <image id="displayCalWeather-Icon"/>
+    </hbox>
+    <description crop="end" id="displayCalWeather-Temperature" />
+    <description crop="end" id="displayCalWeather-Location" />
+   </vbox>
+   <vbox id="weatherCalLoading" flex="1" pack="center">
+    <description crop="end" value="&loading;"/>
+    <progressmeter id="weatherCalProgress" mode="undetermined"  style="min-width: 0px;"/>
+   </vbox>
+   <vbox id="weatherCalError" flex="1" pack="center">
+    <hbox id="displayCalWeather-IconBoxError" pack="center">
+     <image id="displayCalWeather-IconError"/>
+    </hbox>
+    <description crop="end">&error-message;</description>
+    <button label="&error-button;" oncommand="weatherWatcher.initiateWeather(); return false;"/>
+   </vbox>
+   <vbox id="weatherCalForecast" flex="1" pack="center" collapsed="true" >
+    <description>
+     <vbox>
+      <hbox id="displayCalWeather-ForecastIconBox1" pack="center">
+       <image id="displayCalWeather-ForecastIcon1day" class="displayWeather-Icon-small" />
+       <image id="displayCalWeather-ForecastIcon1night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayCalWeather-ForecastTemperature1" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayCalWeather-ForecastLocation1" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayCalWeather-ForecastIconBox2" pack="center">
+       <image id="displayCalWeather-ForecastIcon2day" class="displayWeather-Icon-small" />
+       <image id="displayCalWeather-ForecastIcon2night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayCalWeather-ForecastTemperature2" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayCalWeather-ForecastLocation2" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayCalWeather-ForecastIconBox3" pack="center">
+       <image id="displayCalWeather-ForecastIcon3day" class="displayWeather-Icon-small" />
+       <image id="displayCalWeather-ForecastIcon3night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayCalWeather-ForecastTemperature3" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayCalWeather-ForecastLocation3" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox> 
+      <hbox id="displayCalWeather-ForecastIconBox4" pack="center">
+       <image id="displayCalWeather-ForecastIcon4day" class="displayWeather-Icon-small" />
+       <image id="displayCalWeather-ForecastIcon4night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayCalWeather-ForecastTemperature4" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayCalWeather-ForecastLocation4" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayCalWeather-ForecastIconBox5" pack="center">
+       <image id="displayCalWeather-ForecastIcon5day" class="displayWeather-Icon-small" />
+       <image id="displayCalWeather-ForecastIcon5night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayCalWeather-ForecastTemperature5" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayCalWeather-ForecastLocation5" class="displayWeather-Location-medium" />
+     </vbox>
+     <vbox>
+      <hbox id="displayCalWeather-ForecastIconBox6" pack="center">
+       <image id="displayCalWeather-ForecastIcon6day" class="displayWeather-Icon-small" />
+       <image id="displayCalWeather-ForecastIcon6night" class="displayWeather-Icon-small" />
+      </hbox>
+      <description crop="end" id="displayCalWeather-ForecastTemperature6" class="displayWeather-Temperature-small" />
+      <description crop="end" id="displayCalWeather-ForecastLocation6" class="displayWeather-Location-medium" />
+     </vbox>
+    </description>
+   </vbox>
+  </deck>
+ </vbox>
+ 
+</overlay>

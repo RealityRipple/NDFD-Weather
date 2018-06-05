@@ -1,0 +1,118 @@
+#weatherMailDeck, #weatherCalDeck
+{
+ padding: 5px;
+ text-align: center;
+}
+#weatherMailDeck > * > *, #weatherCalDeck > * > *
+{
+ font-family: Verdana, sans-serif;
+}
+#weatherMailInfo > *, #weatherCalInfo > *
+{
+ margin: 0px;
+}
+#weatherMailPaneSelector, #weatherCalPaneSelector
+{
+ font-weight: bold;
+ margin-inline-start: 0.5em;
+}
+#weatherMailForecast, #weatherCalForecast
+{
+ overflow-y: auto;
+}
+#weatherMailForecast vbox, #weatherCalForecast vbox
+{
+ width: 75px;
+}
+#weatherMailForecast vbox .displayWeather-Temperature-small, #weatherCalForecast vbox .displayWeather-Temperature-small
+{
+ margin-bottom: 0;
+}
+#weatherMailForecast vbox .displayWeather-Location-medium, #weatherCalForecast vbox .displayWeather-Location-medium
+{
+ margin-top: 0;
+ margin-bottom: 4px;
+}
+.displayWeather-Temperature-small
+{
+ font-size: 1em;
+ font-weight: bold;
+}
+.displayWeather-Temperature-medium
+{
+ font-size: 1.5em;
+ font-weight: bold;
+}
+.displayWeather-Temperature-large
+{
+ font-size: 2em;
+ font-weight: bold;
+}
+.displayWeather-Location-small
+{
+ font-size: .5em;
+}
+.displayWeather-Location-medium
+{
+ font-size: .75em;
+}
+.displayWeather-Location-large
+{
+ font-size: 1em;
+}
+#weatherMailError > *, #weatherMailLoading > *, #weatherCalError > *, #weatherCalLoading > *
+{
+ margin-top: 5px;
+}
+.tooltip-label
+{
+ font-weight: bold;
+}
+#weatherMoreData-MoonIllum
+{
+	font-size: 75%;
+}
+.displayWeather-Icon-large
+{
+ width: 128px;
+ height: 128px;
+}
+.displayWeather-Icon-medium
+{
+ width: 64px;
+ height: 64px;
+}
+.displayWeather-Icon-small
+{
+ width: 32px;
+ height: 32px;
+}
+.weatherSidebarURL
+{
+ cursor: pointer;
+}
+.weatherSidebarURL:hover
+{
+ text-decoration: underline;
+}
+#displayMailWeather-Icon, #displayCalWeather-Icon
+{
+ box-shadow: 2px 2px 3px;
+}
+#displayWeather-ForecastIconBar1
+{
+ background-color: transparent;
+ padding-right: 3px;
+ height: 16px;
+ padding-bottom: 1px;
+}
+#displayWeather-ForecastTinyIcon1day, #displayWeather-ForecastTinyIcon1night
+{
+ width: 16px;
+ height: 16px;
+}
+#weatherStatusPanel .displayWeather-Temperature-small
+{
+ margin-top: 0;
+ margin-bottom: 0;
+}

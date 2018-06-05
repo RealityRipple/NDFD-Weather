@@ -1,5 +1,0 @@
-<!ENTITY window-title "World Weather Hely - keresés azonosító alapján">
-<!ENTITY search-box-label "weather.com Hely azonosítójának keresése">
-<!ENTITY search-box-description "Megadás mint: &apos;Város, Állam&apos;; &apos;Város, Ország&apos;; &apos;Város&apos;; vagy &apos;Irányítószám&apos;;">
-<!ENTITY search-button-label "Keresés">
-<!ENTITY searchresult-box-label "Eredmény kiválasztása">

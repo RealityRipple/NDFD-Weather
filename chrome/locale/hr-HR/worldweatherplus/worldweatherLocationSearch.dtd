@@ -1,5 +1,0 @@
-<!ENTITY window-title "World Weather pretraživanje ID mjesta">
-<!ENTITY search-box-label "weather.com pretraživanje ID mjesta">
-<!ENTITY search-box-description "Unesite kao &apos;Grad, Država&apos;; &apos;Grad, Zemlja&apos;; &apos;Grad&apos;; ili &apos;Poštanski kod&apos;">
-<!ENTITY search-button-label "Pretraži">
-<!ENTITY searchresult-box-label "Odaberite rezultat">

@@ -1,5 +1,0 @@
-<!ENTITY window-title "World Weather - Recherche de la localisation">
-<!ENTITY search-box-label "Rechercher la localisation sur weather.com">
-<!ENTITY search-box-description "Entrer sous la forme : &apos;Ville, état&apos;; &apos;Ville, pays&apos;; &apos;Ville&apos; ou &apos;Code postal (US)&apos;">
-<!ENTITY search-button-label "Rechercher">
-<!ENTITY searchresult-box-label "Sélectionner un résultat">

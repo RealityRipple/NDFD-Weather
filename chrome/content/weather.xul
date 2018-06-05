@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<overlay id="weatherOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ <vbox id="folderPaneBox" style="overflow: auto;">
+  <splitter id="weather-mailpane-splitter" collapse="after" orient="vertical" persist="state" />
+  <vbox id="weatherMailContainer" />
+ </vbox>
+ <vbox id="ltnSidebar" style="overflow: auto;">
+  <splitter id="weather-calendarpane-splitter" collapse="after" orient="vertical" persist="state" />
+  <vbox id="weatherCalContainer" />
+ </vbox> 
+</overlay>

@@ -1,0 +1,31 @@
+<!ENTITY window-title "NDFD Weather Options">
+<!ENTITY location-box-label "Location">
+<!ENTITY zip-description "ZIP Code (5-digit):">
+<!ENTITY coord-description "Coordinates:">
+<!ENTITY coord-discover "Locate">
+<!ENTITY refresh-box-label "Refresh">
+<!ENTITY refresh-no-label "Never refresh automatically">
+<!ENTITY refresh-yes-label "Refresh every">
+<!ENTITY refresh-minutes-label "minutes">
+<!ENTITY forecastdays-box-label "Forecast">
+<!ENTITY iconsize-box-label "Current Conditions Icon Size">
+<!ENTITY iconsize-small-label "Small">
+<!ENTITY iconsize-medium-label "Medium">
+<!ENTITY iconsize-large-label "Large">
+<!ENTITY textsize-box-label "Current Conditions Text Size">
+<!ENTITY textsize-small-label "Small">
+<!ENTITY textsize-medium-label "Medium">
+<!ENTITY textsize-large-label "Large">
+<!ENTITY unittype-box-label "Units of Measure">
+<!ENTITY unittype-standard-label "U.S. Standard">
+<!ENTITY unittype-metric-label "Metric">
+<!ENTITY tabname-location-label "Location">
+<!ENTITY tabname-currentconditions-label "Current Conditions">
+<!ENTITY sunandmoon-box-label "Sun and Moon Stats (Insecure)">
+<!ENTITY sunandmoon-no-label "Disable">
+<!ENTITY sunandmoon-yes-label "Enable">
+<!ENTITY sunandmoon-secure-label "Sends your location over HTTP - ">
+<!ENTITY sunandmoon-secure-warn "Enable with care!">
+<!ENTITY statusbar-box-label "Today's Forecast Statusbar Item">
+<!ENTITY statusbar-no-label "Hide">
+<!ENTITY statusbar-yes-label "Show">

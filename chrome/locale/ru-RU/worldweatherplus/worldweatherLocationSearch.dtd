@@ -1,5 +1,0 @@
-<!ENTITY window-title "World Weather Поиск ID местоположения">
-<!ENTITY search-box-label "weather.com Поиск ID местоположения">
-<!ENTITY search-box-description "Введите как &apos;Город, Штат&apos;; &apos;Город, Страна&apos;; &apos;Город&apos;; или &apos;Почтовый индекс&apos;">
-<!ENTITY search-button-label "Поиск">
-<!ENTITY searchresult-box-label "Выбрать результат">
