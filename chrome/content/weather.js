@@ -1257,15 +1257,32 @@ var weatherWatcher =
     }
    }
   }
-  document.getElementById("weatherMailInfo").setAttribute("collapsed", "false");
-  if (document.getElementById("weatherCalInfo"))
-   document.getElementById("weatherCalInfo").setAttribute("collapsed", "false");
-  document.getElementById("weatherMailForecast").setAttribute("collapsed", "true");
-  if (document.getElementById("weatherCalForecast"))
-   document.getElementById("weatherCalForecast").setAttribute("collapsed", "true");
-  document.getElementById("weatherMailDeck").selectedIndex = "0";
-  if (document.getElementById("weatherCalDeck"))
-   document.getElementById("weatherCalDeck").selectedIndex = "0";
+  
+  if (document.getElementById("weatherMailPaneSelector").label == document.getElementById("weatherMailPaneMenu3").label)
+  {
+   document.getElementById("weatherMailInfo").setAttribute("collapsed", "true");
+   if (document.getElementById("weatherCalInfo"))
+    document.getElementById("weatherCalInfo").setAttribute("collapsed", "true");
+   document.getElementById("weatherMailForecast").setAttribute("collapsed", "false");
+   if (document.getElementById("weatherCalForecast"))
+    document.getElementById("weatherCalForecast").setAttribute("collapsed", "false");
+   document.getElementById("weatherMailDeck").selectedIndex = "3";
+   if (document.getElementById("weatherCalDeck"))
+    document.getElementById("weatherCalDeck").selectedIndex = "3";
+  }
+  else
+  {
+   document.getElementById("weatherMailInfo").setAttribute("collapsed", "false");
+   if (document.getElementById("weatherCalInfo"))
+    document.getElementById("weatherCalInfo").setAttribute("collapsed", "false");
+   document.getElementById("weatherMailForecast").setAttribute("collapsed", "true");
+   if (document.getElementById("weatherCalForecast"))
+    document.getElementById("weatherCalForecast").setAttribute("collapsed", "true");
+   document.getElementById("weatherMailDeck").selectedIndex = "0"
+   if (document.getElementById("weatherCalDeck"))
+    document.getElementById("weatherCalDeck").selectedIndex = "0";
+  }
+  
   if (weatherWatcher.current_sun == null)
   {
    document.getElementById("weatherMoreData-Sunrise").setAttribute("value", weatherWatcher.locale.GetStringFromName("generic.loading"));
