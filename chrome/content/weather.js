@@ -498,7 +498,7 @@ var weatherWatcher =
      dayD.setMilliseconds(0);
      dayD.setDate(dayD.getDate() + (d - 1));
      var thisDay = dayD.valueOf();
-     var thisNight = thisDay + (1000 * 60 * 60 * 10);
+     var thisNight = thisDay + (1000 * 60 * 60 * 11);
      if (d == 1)
      {
       dayD = new Date();
