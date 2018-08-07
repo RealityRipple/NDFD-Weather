@@ -20,7 +20,9 @@ var weatherWatcher =
  weather_prefs: Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("extensions.ndfdweather."),
  getBranchPrefInterface: function (thisBranch)
  {
-  if (typeof Components.interfaces.nsIPrefBranch2 == "undefined")
+  if (typeof Components.interfaces.nsIPrefBranch2 == "undefined" && typeof Components.interfaces.nsIPrefBranchInternal == "undefined")
+   return thisBranch.QueryInterface(Components.interfaces.nsIPrefBranch); // 60.0+ support
+  else if (typeof Components.interfaces.nsIPrefBranch2 == "undefined")
    return thisBranch.QueryInterface(Components.interfaces.nsIPrefBranchInternal); //1.0.x support
   else
    return thisBranch.QueryInterface(Components.interfaces.nsIPrefBranch2); // 1.5+ support
