@@ -6,10 +6,10 @@
   <script type="application/x-javascript" src="chrome://ndfdweather/content/drag.js" />
  <vbox id="weatherMailContainer" context="weatherMenu">
   <popupset>
-   <popup id="weatherMenu">
+   <menupopup id="weatherMenu">
     <menuitem label="&menu-refresh-label;" accesskey="&menu-refresh-accesskey;" oncommand="weatherWatcher.initiateWeather(); return false;" />
     <menuitem label="&menu-options-label;" accesskey="&menu-options-accesskey;" oncommand="window.openDialog('chrome://ndfdweather/content/weatherOptions.xul', 'weatherOptions', 'chrome,dependent,modal');" />
-   </popup>
+   </menupopup>
   </popupset>
   <tooltip id="weatherMoreData" orient="vertical" noautohide="true">
    <grid id="tooltipGrid">
