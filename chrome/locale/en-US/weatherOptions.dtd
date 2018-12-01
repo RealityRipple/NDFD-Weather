@@ -21,11 +21,11 @@
 <!ENTITY unittype-metric-label "Metric">
 <!ENTITY tabname-location-label "Location">
 <!ENTITY tabname-currentconditions-label "Current Conditions">
-<!ENTITY sunandmoon-box-label "Sun and Moon Stats (Insecure)">
+<!ENTITY sunandmoon-box-label "Sun and Moon Stats">
 <!ENTITY sunandmoon-no-label "Disable">
 <!ENTITY sunandmoon-yes-label "Enable">
-<!ENTITY sunandmoon-secure-label "Sends your location over HTTP - ">
-<!ENTITY sunandmoon-secure-warn "Enable with care!">
+<!ENTITY sunandmoon-secure-label "Requires advanced configuration:">
+<!ENTITY sunandmoon-secure-warn "Step-by-Step Guide">
 <!ENTITY statusbar-box-label "Today's Forecast Statusbar Item">
 <!ENTITY statusbar-no-label "Hide">
 <!ENTITY statusbar-yes-label "Show">

@@ -52,7 +52,7 @@
     <groupbox>
      <caption label="&sunandmoon-box-label;" />
      <description>&sunandmoon-secure-label;</description>
-     <description>&sunandmoon-secure-warn;</description>
+     <label class="text-link" href="https://realityripple.com/Software/Mozilla-Extensions/NDFD-Weather/usno.php">&sunandmoon-secure-warn;</label>
      <radiogroup id="sunGroup">
       <hbox>
        <spacer flex="1" />
