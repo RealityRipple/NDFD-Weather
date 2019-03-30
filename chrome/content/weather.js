@@ -11,7 +11,6 @@ var weatherWatcher =
  iconsize: null,
  textsize: null,
  unittype: null,
- sunandmoon: null,
  statusbarVis: null,
  current_weather: null,
  current_sun: null,
@@ -962,16 +961,8 @@ var weatherWatcher =
     return true;
    }
    weatherWatcher.current_weather = return_data;
-   if (weatherWatcher.sunandmoon)
-   {
-    weatherWatcher.displayWeather();
-    weatherWatcher.getSun();
-   }
-   else
-   {
-    weatherWatcher.current_sun = null;
-    weatherWatcher.displayWeather();
-   }
+   weatherWatcher.displayWeather();
+   weatherWatcher.getSun();
    return true;
   }
   document.getElementById("weatherMailDeck").selectedIndex = "1";
@@ -1319,7 +1310,37 @@ var weatherWatcher =
    {
     if (document.getElementById("weatherMoreData-MoonPhase") != null)
     {
-     document.getElementById("weatherMoreData-MoonPhase").setAttribute("value", weatherWatcher.current_sun[value]);
+     var lunarPhase = weatherWatcher.current_sun[value];
+     switch (lunarPhase)
+     {
+      case 'New Moon':
+       lunarPhase = '\uD83C\uDF11 ' + lunarPhase;
+       break;
+      case 'Waxing Crescent':
+       lunarPhase = '\uD83C\uDF12 ' + lunarPhase;
+       break;
+      case 'First Quarter':
+       lunarPhase = '\uD83C\uDF13 ' + lunarPhase;
+       break;
+      case 'Waxing Gibbous':
+       lunarPhase = '\uD83C\uDF14 ' + lunarPhase;
+       break;
+      case 'Full Moon':
+       lunarPhase = '\uD83C\uDF15 ' + lunarPhase;
+       break;
+      case 'Waning Gibbous':
+       lunarPhase = '\uD83C\uDF16 ' + lunarPhase;
+       break;
+      case 'Last Quarter':
+       lunarPhase = '\uD83C\uDF17 ' + lunarPhase;
+       break;
+      case 'Waning Crescent':
+       lunarPhase = '\uD83C\uDF18 ' + lunarPhase;
+       break;
+      default:
+       lunarPhase = '\uD83C\uDF1B ' + lunarPhase;
+     }
+     document.getElementById("weatherMoreData-MoonPhase").setAttribute("value", lunarPhase);
      if (weatherWatcher.current_sun["MoonVis"] === weatherWatcher.locale.GetStringFromName("generic.unknown"))
       document.getElementById("weatherMoreData-MoonIllum").setAttribute("value", "");
      else
@@ -1587,7 +1608,6 @@ var weatherWatcher =
   this.iconsize = weatherWatcher.weather_prefs.getCharPref("iconsize");
   this.textsize = weatherWatcher.weather_prefs.getCharPref("textsize");
   this.unittype = weatherWatcher.weather_prefs.getCharPref("unittype");
-  this.sunandmoon = weatherWatcher.weather_prefs.getBoolPref("sunandmoon");
   this.statusbarVis = weatherWatcher.weather_prefs.getBoolPref("statusbar");
  },
  weatherPaneSelector: function(container, value)

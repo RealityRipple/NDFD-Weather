@@ -11,7 +11,6 @@ function initWeatherOptions()
  var prefTextsizeVal = weather_prefs.getCharPref("textsize");
  var prefUnittypeVal = weather_prefs.getCharPref("unittype");
  var prefStatusbarVal = weather_prefs.getBoolPref("statusbar");
- var prefSunandmoonVal = weather_prefs.getBoolPref("sunandmoon");
 
  var prefRefresh = "refreshYes";
  var prefLocation = "locationZip";
@@ -21,7 +20,6 @@ function initWeatherOptions()
  var prefTextsize = "textsizeLarge";
  var prefUnittype = "unittypeStandard";
  var prefStatusbar = "statusYes";
- var prefSunandmoon = "sunNo";
 
  if (prefLatLonVal.indexOf(",") > -1)
  {
@@ -44,8 +42,6 @@ function initWeatherOptions()
   prefUnittype = "unittypeMetric";
  if (!prefStatusbarVal)
   prefStatusbar = "statusNo";
- if (prefSunandmoonVal)
-  prefSunandmoon = "sunYes";
 
  document.getElementById("locationGroup").selectedItem = document.getElementById(prefLocation);
  document.getElementById("zipcodeInput").value = prefZipcodeVal;
@@ -63,39 +59,13 @@ function initWeatherOptions()
  document.getElementById("textsizeGroup").selectedItem = document.getElementById(prefTextsize);
  document.getElementById("unittypeGroup").selectedItem = document.getElementById(prefUnittype);
  document.getElementById("statusGroup").selectedItem = document.getElementById(prefStatusbar);
- document.getElementById("sunGroup").selectedItem = document.getElementById(prefSunandmoon);
 
- var geoURL  = "https://geoip.nekudo.com/api/";
- if (weather_prefs.prefHasUserValue("geoip.uri"))
-  geoURL = weather_prefs.getCharPref("geoip.uri");
- else
- {
-  var geoPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("geo.");
-  var geoDefPrefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getDefaultBranch("geo.");
-  if (geoPrefs.prefHasUserValue("wifi.uri"))
-   geoURL = geoPrefs.getCharPref("wifi.uri");
-  else
-  {
-   try
-   {
-    var defGeoURL = geoDefPrefs.getCharPref("wifi.uri");
-    if (defGeoURL !== undefined && defGeoURL != "")
-     geoURL = defGeoURL;
-   }
-   catch (e) {}
-  }
- }
- if (geoURL == "")
-  geoURL  = "https://geoip.nekudo.com/api/";
- document.getElementById("coordServer").value = geoURL;
- document.getElementById("coordServer").setAttribute("value", geoURL);
- 
  if (prefLocation === "locationCoord")
   toggleLocation("geo");
  else
   toggleLocation("zip");
  forecastLabelUpdate();
- 
+
  setTimeout("window.sizeToContent()", 100);
 }
 function toggleLocation(enable)
@@ -105,16 +75,12 @@ function toggleLocation(enable)
   document.getElementById("zipcodeInput").disabled = false;
   document.getElementById("coordInputLat").disabled = true;
   document.getElementById("coordInputLon").disabled = true;
-  document.getElementById("coordServer").disabled = true;
-  document.getElementById("coordFind").disabled = true;
  }
  else if (enable === "geo")
  {
   document.getElementById("zipcodeInput").disabled = true;
   document.getElementById("coordInputLat").disabled = false;
   document.getElementById("coordInputLon").disabled = false;
-  document.getElementById("coordServer").disabled = false;
-  document.getElementById("coordFind").disabled = false;
  }
 }
 function getGeoData()
@@ -122,9 +88,7 @@ function getGeoData()
  toggleLocationOptions(false);
  var geoRequest = new XMLHttpRequest();
  geoRequest.overrideMimeType("application/json");
- var geoURL  = document.getElementById("coordServer").value;
- console.log("Geo Data Loading from " + geoURL);
- geoRequest.open("GET", geoURL, true);
+ geoRequest.open("GET", "https://realityripple.com/Software/Mozilla-Extensions/NDFD-Weather/geo.php", true);
  geoRequest.responseType = "JSON";
  geoRequest.setRequestHeader("Content-Type", "application/json; charset=utf-8");
  geoRequest.setRequestHeader("Pragma", "no-cache");
@@ -142,51 +106,17 @@ function getGeoData()
     setNoGeoData();
     return true;
    }
-   if (passJSON.location == null)
+   if (passJSON.lat == null || passJSON.lon == null)
    {
-    if (passJSON.latitude == null || passJSON.longitude == null)
-    {
-     if (passJSON.lat == null || passJSON.lon == null)
-     {
-      console.log("Geo Data contains no location, latitude, or longitude values");
-      console.log(passJSON);
-      setNoGeoData();
-      return true;
-     }
-     document.getElementById("coordInputLat").value = passJSON.lat;
-     document.getElementById("coordInputLat").setAttribute("value", passJSON.lat);
-     document.getElementById("coordInputLon").value = passJSON.lon;
-     document.getElementById("coordInputLon").setAttribute("value", passJSON.lon);
-     toggleLocationOptions(true);
-     return true;
-    }
-    document.getElementById("coordInputLat").value = passJSON.latitude;
-    document.getElementById("coordInputLat").setAttribute("value", passJSON.latitude);
-    document.getElementById("coordInputLon").value = passJSON.longitude;
-    document.getElementById("coordInputLon").setAttribute("value", passJSON.longitude);
-    toggleLocationOptions(true);
+    console.log("Geo Data contains no location, latitude, or longitude values");
+    console.log(passJSON);
+    setNoGeoData();
     return true;
    }
-   if (passJSON.location.latitude == null || passJSON.location.longitude == null)
-   {
-    if (passJSON.location.lat == null || passJSON.location.lon == null)
-    {
-     console.log("Geo Data contains no latitude or longitude values");
-     console.log(passJSON);
-     setNoGeoData();
-     return true;
-    }
-    document.getElementById("coordInputLat").value = passJSON.location.lat;
-    document.getElementById("coordInputLat").setAttribute("value", passJSON.location.lat);
-    document.getElementById("coordInputLon").value = passJSON.location.lon;
-    document.getElementById("coordInputLon").setAttribute("value", passJSON.location.lon);
-    toggleLocationOptions(true);
-    return true;
-   }
-   document.getElementById("coordInputLat").value = passJSON.location.latitude;
-   document.getElementById("coordInputLat").setAttribute("value", passJSON.location.latitude);
-   document.getElementById("coordInputLon").value = passJSON.location.longitude;
-   document.getElementById("coordInputLon").setAttribute("value", passJSON.location.longitude);
+   document.getElementById("coordInputLat").value = passJSON.lat;
+   document.getElementById("coordInputLat").setAttribute("value", passJSON.lat);
+   document.getElementById("coordInputLon").value = passJSON.lon;
+   document.getElementById("coordInputLon").setAttribute("value", passJSON.lon);
    toggleLocationOptions(true);
    return true;
   }
@@ -225,7 +155,6 @@ function toggleLocationOptions(enable)
   {
    document.getElementById("coordInputLat").disabled = false;
    document.getElementById("coordInputLon").disabled = false;
-   document.getElementById("coordFind").disabled = false;
   }
   else
   {
@@ -239,7 +168,6 @@ function toggleLocationOptions(enable)
   document.getElementById("locationCoord").disabled = true;
   document.getElementById("coordInputLat").disabled = true;
   document.getElementById("coordInputLon").disabled = true;
-  document.getElementById("coordFind").disabled = true;
  }
 }
 function forecastLabelUpdate()
@@ -280,7 +208,6 @@ function saveWeatherOptions()
   }
   weather_prefs.setCharPref("latlon", document.getElementById("coordInputLat").value + "," + document.getElementById("coordInputLon").value);
  }
- weather_prefs.setCharPref("geoip.uri", document.getElementById("coordServer").value)
  weather_prefs.setCharPref("iconsize", document.getElementById("iconsizeGroup").selectedItem.value);
  weather_prefs.setCharPref("textsize", document.getElementById("textsizeGroup").selectedItem.value);
  weather_prefs.setCharPref("unittype", document.getElementById("unittypeGroup").selectedItem.value);
@@ -288,6 +215,5 @@ function saveWeatherOptions()
  weather_prefs.setIntPref("forecastdays", document.getElementById("forecastDays").value + 1);
  weather_prefs.setBoolPref("refresh", (document.getElementById("refreshGroup").selectedItem == document.getElementById("refreshYes")));
  weather_prefs.setBoolPref("statusbar", !(document.getElementById("statusGroup").selectedItem == document.getElementById("statusNo")));
- weather_prefs.setBoolPref("sunandmoon", (document.getElementById("sunGroup").selectedItem == document.getElementById("sunYes")));
  return true;
 }

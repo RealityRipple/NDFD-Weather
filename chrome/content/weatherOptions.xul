@@ -22,19 +22,9 @@
        <textbox id="zipcodeInput" size="8" maxlength="5" />
       </hbox>
       <hbox align="baseline">
-       <radio id="locationCoord" value="coord" label="&coord-description;" oncommand="toggleLocation('geo');" />
-       <textbox id="coordInputLat" type="number" min="-90" max="90" increment="0.1" decimalplaces="3" size="6"  hidespinbuttons="true" />
-       <textbox id="coordInputLon" type="number" min="-180" max="180" increment="0.1" decimalplaces="3" size="7" hidespinbuttons="true" />
-      </hbox>
-      <hbox align="right">
-       <menulist id="coordServer">
-        <menupopup>
-         <menuitem label="ipapi.co"      value="https://ipapi.co/json"/>
-         <menuitem label="freegeoip.net" value="https://freegeoip.net/json/"/>
-         <menuitem label="nekudo.com"    value="https://geoip.nekudo.com/api/"/>
-        </menupopup>
-       </menulist>
-       <button id="coordFind" label="&coord-discover;" oncommand="getGeoData();" />
+       <radio id="locationCoord" value="coord" label="&coord-description;" oncommand="toggleLocation('geo'); getGeoData();" />
+       <textbox id="coordInputLat" type="decimal" min="-90" max="90" increment="0.1" decimalplaces="3" size="6"  hidespinbuttons="true" />
+       <textbox id="coordInputLon" type="decimal" min="-180" max="180" increment="0.1" decimalplaces="3" size="7" hidespinbuttons="true" />
       </hbox>
      </radiogroup>
     </groupbox>
@@ -49,35 +39,6 @@
       </hbox>
      </radiogroup>
     </groupbox>
-    <groupbox>
-     <caption label="&sunandmoon-box-label;" />
-     <description>&sunandmoon-secure-label;</description>
-     <label class="text-link" href="https://realityripple.com/Software/Mozilla-Extensions/NDFD-Weather/usno.php">&sunandmoon-secure-warn;</label>
-     <radiogroup id="sunGroup">
-      <hbox>
-       <spacer flex="1" />
-       <radio id="sunNo" value="no" label="&sunandmoon-no-label;" />
-       <spacer flex="1" />
-       <radio id="sunYes" value="yes" label="&sunandmoon-yes-label;" />
-       <spacer flex="1" />
-      </hbox>
-     </radiogroup>
-    </groupbox>
-   </vbox>
-   <vbox>
-<!--
-    <hbox>
-     <image src="chrome://ndfdweather/skin/logo.png" />
-     <spacer flex="1" />
-     <vbox>
-      <description class="header">NDFD Weather</description>
-      <spacer flex="1" />
-      <description>Data provided by the</description>
-      <label class="text-link" href="https://www.weather.gov/" value="National Weather Service" />
-     </vbox>
-    </hbox>
- -->
-    <spacer flex="1" />
     <groupbox>
      <caption label="&forecastdays-box-label;" />
      <hbox>
@@ -98,6 +59,21 @@
       </hbox>
      </radiogroup>
     </groupbox>
+   </vbox>
+   <vbox>
+    <hbox>
+     <image src="chrome://ndfdweather/skin/nws_logo.png" />
+     <spacer flex="1" />
+     <vbox>
+      <description class="header">&header-title;</description>
+      <spacer flex="1" />
+      <description>&header-source;</description>
+      <label class="text-link" href="https://www.weather.gov/" value="&header-nws;" />
+      <description>&header-source2;</description>
+      <label class="text-link" href="https://aa.usno.navy.mil/index.php" value="&header-usno;" />
+     </vbox>
+    </hbox>
+    <spacer flex="1" />
     <groupbox>
      <caption label="&unittype-box-label;" />
      <radiogroup id="unittypeGroup">

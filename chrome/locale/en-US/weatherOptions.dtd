@@ -2,12 +2,22 @@
 <!ENTITY location-box-label "Location">
 <!ENTITY zip-description "ZIP Code (5-digit):">
 <!ENTITY coord-description "Coordinates:">
-<!ENTITY coord-discover "Locate">
 <!ENTITY refresh-box-label "Refresh">
 <!ENTITY refresh-no-label "Never refresh automatically">
 <!ENTITY refresh-yes-label "Refresh every">
 <!ENTITY refresh-minutes-label "minutes">
 <!ENTITY forecastdays-box-label "Forecast">
+<!ENTITY statusbar-box-label "Today's Forecast Statusbar Item">
+<!ENTITY statusbar-no-label "Hide">
+<!ENTITY statusbar-yes-label "Show">
+<!ENTITY header-title "NDFD Weather">
+<!ENTITY header-source "Data provided by the">
+<!ENTITY header-nws "National Weather Service">
+<!ENTITY header-source2 "and the">
+<!ENTITY header-usno "U.S. Naval Observatory">
+<!ENTITY unittype-box-label "Units of Measure">
+<!ENTITY unittype-standard-label "U.S. Standard">
+<!ENTITY unittype-metric-label "Metric">
 <!ENTITY iconsize-box-label "Current Conditions Icon Size">
 <!ENTITY iconsize-small-label "Small">
 <!ENTITY iconsize-medium-label "Medium">
@@ -16,16 +26,3 @@
 <!ENTITY textsize-small-label "Small">
 <!ENTITY textsize-medium-label "Medium">
 <!ENTITY textsize-large-label "Large">
-<!ENTITY unittype-box-label "Units of Measure">
-<!ENTITY unittype-standard-label "U.S. Standard">
-<!ENTITY unittype-metric-label "Metric">
-<!ENTITY tabname-location-label "Location">
-<!ENTITY tabname-currentconditions-label "Current Conditions">
-<!ENTITY sunandmoon-box-label "Sun and Moon Stats">
-<!ENTITY sunandmoon-no-label "Disable">
-<!ENTITY sunandmoon-yes-label "Enable">
-<!ENTITY sunandmoon-secure-label "Requires advanced configuration:">
-<!ENTITY sunandmoon-secure-warn "Step-by-Step Guide">
-<!ENTITY statusbar-box-label "Today's Forecast Statusbar Item">
-<!ENTITY statusbar-no-label "Hide">
-<!ENTITY statusbar-yes-label "Show">

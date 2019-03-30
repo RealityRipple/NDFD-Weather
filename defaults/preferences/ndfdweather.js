@@ -6,6 +6,4 @@ pref("extensions.ndfdweather.textsize", "large");
 pref("extensions.ndfdweather.unittype", "e");
 pref("extensions.ndfdweather.zipcode", "");
 pref("extensions.ndfdweather.latlon", "0,0");
-pref("extensions.ndfdweather.geoip.uri", "https://geoip.nekudo.com/api/");
 pref("extensions.ndfdweather.statusbar", true);
-pref("extensions.ndfdweather.sunandmoon", false);
