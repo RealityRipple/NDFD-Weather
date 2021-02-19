@@ -1,6 +1,6 @@
-content  ndfdweather         chrome/content/
-overlay                      chrome://messenger/content/messenger.xul  chrome://ndfdweather/content/weather.xul
-overlay                      chrome://messenger/content/messenger.xul  chrome://ndfdweather/content/weatherStatusbar.xul
-overlay                      chrome://ndfdweather/content/weather.xul  chrome://ndfdweather/content/weatherWindow.xul
-skin     ndfdweather  skin   chrome/skin/
-locale   ndfdweather  en-US  chrome/locale/en-US/
+content ndfdweather       chrome/content/
+locale  ndfdweather en-US chrome/locale/en-US/
+skin    ndfdweather skin  chrome/skin/
+overlay chrome://messenger/content/messenger.xul chrome://ndfdweather/content/weather.xul
+overlay chrome://messenger/content/messenger.xul chrome://ndfdweather/content/weatherStatusbar.xul
+overlay chrome://ndfdweather/content/weather.xul chrome://ndfdweather/content/weatherWindow.xul

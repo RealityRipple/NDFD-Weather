@@ -5,6 +5,14 @@
   <em:id>{7F45A316-44EE-56D8-B31E-5DBE70E54E51}</em:id>
   <em:version>1.0</em:version>
   <em:type>2</em:type>
+  <!-- SeaMonkey -->
+  <em:targetApplication>
+   <Description>
+    <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+    <em:minVersion>2.0a1</em:minVersion>
+    <em:maxVersion>2.*</em:maxVersion>
+   </Description>
+  </em:targetApplication>
   <!-- Thunderbird -->
   <em:targetApplication>
    <Description>
